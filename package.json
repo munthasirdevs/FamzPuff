@@ -1,0 +1,28 @@
+{
+  "name": "famzpuff",
+  "version": "1.0.0",
+  "description": "VELORA // PROJECT: CAESAR - Luxury Streetwear & Architectural Footwear E-Commerce Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "lite-server -c bs-config.json",
+    "start": "lite-server -c bs-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/munthasirdevs/FamzPuff.git"
+  },
+  "keywords": [
+    "luxury",
+    "streetwear",
+    "footwear",
+    "velora",
+    "caesar",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FamzPuff // THE VAPE JOURNAL — Vapor Engineering & Coil Physics</title>
+  <meta name="description" content="Technical whitepapers on dual mesh coils, nicotine salt kinetics, and pod airflow dynamics." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            caesar: {
+              black: '#000000',
+              surface: '#0A0A0C',
+              card: '#121215',
+              border: '#222226',
+              burgundy: '#6D001A',
+              'burgundy-light': '#8F0022',
+              white: '#FFFFFF',
+              ash: '#A1A1AA',
+              slate: '#52525B'
+            }
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            heading: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-caesar-black text-caesar-white antialiased selection:bg-caesar-burgundy selection:text-white">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 h-20 w-full bg-caesar-black/90 backdrop-blur-md border-b border-caesar-border">
+    <div class="max-w-[1440px] mx-auto h-full px-4 md:px-12 flex items-center justify-between">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-[0.18em] text-caesar-white">FamzPuff</a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">HOME</a>
+        <a href="shop.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">VAPES & PODS ▾</a>
+        <a href="shop.html?cat=disposables" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">DISPOSABLES</a>
+        <a href="collections.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">COLLECTIONS</a>
+        <a href="sale.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-burgundy-light hover:text-white">SALE 29%</a>
+        <a href="blog.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-white border-b border-caesar-burgundy pb-0.5">VAPE JOURNAL</a>
+      </nav>
+      <div class="flex items-center gap-5">
+        <a href="shop.html" class="hover:text-caesar-burgundy-light">HARDWARE VAULT →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-caesar-surface py-20 border-b border-caesar-border">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-12 text-center max-w-3xl">
+      <span class="font-mono text-xs tracking-[0.25em] text-caesar-burgundy-light uppercase block mb-3">— HARDWARE & SCIENCE JOURNAL</span>
+      <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white uppercase tracking-tight mb-6">
+        THE FAMZPUFF JOURNAL
+      </h1>
+      <p class="font-sans text-base text-caesar-ash leading-relaxed">
+        Investigating coil thermodynamics, dual mesh wicking kinetics, and pure cobalt battery safety in modern vapor hardware.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <main class="max-w-[1440px] mx-auto px-4 md:px-12 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Article 1 -->
+      <article class="bg-caesar-card border border-caesar-border rounded-2xl overflow-hidden hover:border-caesar-burgundy transition-all flex flex-col justify-between">
+        <img src="https://images.unsplash.com/photo-1579165466814-e646cfa4a3be?auto=format&fit=crop&w=800&q=85" alt="Dual Mesh" class="w-full h-64 object-cover" />
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 text-xs font-mono text-caesar-ash mb-3">
+              <span class="text-caesar-burgundy font-bold">WHITEPAPER 01</span>
+              <span>·</span>
+              <span>5 MIN READ</span>
+              <span>·</span>
+              <span>COIL THERMODYNAMICS</span>
+            </div>
+            <h2 class="font-heading text-2xl font-bold text-white uppercase mb-4 leading-snug">
+              Why Dual Mesh Heating Coils Prevent Burnt Hits in 15K Disposables
+            </h2>
+            <p class="font-sans text-sm text-caesar-ash leading-relaxed mb-6">
+              Alternating firing cycles between two independent 1.0Ω mesh elements prevents heat buildup on a single wick, ensuring the 15,000th puff tastes identical to the first.
+            </p>
+          </div>
+          <button onclick="alert('Full research whitepaper available for download.')" class="font-mono text-xs text-caesar-burgundy-light font-bold uppercase tracking-wider hover:text-white inline-block">READ WHITEPAPER →</button>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="bg-caesar-card border border-caesar-border rounded-2xl overflow-hidden hover:border-caesar-burgundy transition-all flex flex-col justify-between">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=85" alt="Nicotine Salt Chemistry" class="w-full h-64 object-cover" />
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 text-xs font-mono text-caesar-ash mb-3">
+              <span class="text-caesar-burgundy font-bold">WHITEPAPER 02</span>
+              <span>·</span>
+              <span>4 MIN READ</span>
+              <span>·</span>
+              <span>MOLECULAR EXTRACTION</span>
+            </div>
+            <h2 class="font-heading text-2xl font-bold text-white uppercase mb-4 leading-snug">
+              The Chemistry of Nicotine Salts: Benzoic Acid vs Smooth Absorption
+            </h2>
+            <p class="font-sans text-sm text-caesar-ash leading-relaxed mb-6">
+              Lowering the pH level of pharmaceutical-grade nicotine creates a gentle throat hit while dramatically accelerating bloodstream delivery in low-wattage pod devices.
+            </p>
+          </div>
+          <button onclick="alert('Full research whitepaper available for download.')" class="font-mono text-xs text-caesar-burgundy-light font-bold uppercase tracking-wider hover:text-white inline-block">READ WHITEPAPER →</button>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="bg-caesar-card border border-caesar-border rounded-2xl overflow-hidden hover:border-caesar-burgundy transition-all flex flex-col justify-between">
+        <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=800&q=85" alt="Airflow Fluid Dynamics" class="w-full h-64 object-cover" />
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 text-xs font-mono text-caesar-ash mb-3">
+              <span class="text-caesar-burgundy font-bold">WHITEPAPER 03</span>
+              <span>·</span>
+              <span>6 MIN READ</span>
+              <span>·</span>
+              <span>FLUID DYNAMICS</span>
+            </div>
+            <h2 class="font-heading text-2xl font-bold text-white uppercase mb-4 leading-snug">
+              Stepless Airflow Chambers: Transitioning from MTL to RDL
+            </h2>
+            <p class="font-sans text-sm text-caesar-ash leading-relaxed mb-6">
+              How internal aerodynamic vortex sliders eliminate whistling and turbulence, delivering smooth laminar airflow across sub-ohm mesh coils.
+            </p>
+          </div>
+          <button onclick="alert('Full research whitepaper available for download.')" class="font-mono text-xs text-caesar-burgundy-light font-bold uppercase tracking-wider hover:text-white inline-block">READ WHITEPAPER →</button>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="bg-caesar-card border border-caesar-border rounded-2xl overflow-hidden hover:border-caesar-burgundy transition-all flex flex-col justify-between">
+        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=85" alt="Battery Chemistry" class="w-full h-64 object-cover" />
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 text-xs font-mono text-caesar-ash mb-3">
+              <span class="text-caesar-burgundy font-bold">WHITEPAPER 04</span>
+              <span>·</span>
+              <span>5 MIN READ</span>
+              <span>·</span>
+              <span>CELL SAFETY</span>
+            </div>
+            <h2 class="font-heading text-2xl font-bold text-white uppercase mb-4 leading-snug">
+              Pure Cobalt 650mAh Battery Cells: Why Grade-A Chemistry Matters
+            </h2>
+            <p class="font-sans text-sm text-caesar-ash leading-relaxed mb-6">
+              Cheaper ternary lithium batteries suffer voltage drops that cause weak flavor when under 30% charge. Pure cobalt maintains a steady 3.6V output throughout discharge.
+            </p>
+          </div>
+          <button onclick="alert('Full research whitepaper available for download.')" class="font-mono text-xs text-caesar-burgundy-light font-bold uppercase tracking-wider hover:text-white inline-block">READ WHITEPAPER →</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-caesar-black border-t border-caesar-border py-12 text-center text-xs text-caesar-ash">
+    <p class="font-display text-xl text-white mb-2">FamzPuff</p>
+    <p>© 2026 FAMZPUFF INC. ALL RIGHTS RESERVED. 21+ ONLY.</p>
+  </footer>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

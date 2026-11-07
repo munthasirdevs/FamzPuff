@@ -1,0 +1,217 @@
+/* ============================================================================
+   VELORA // PROJECT: CAESAR - GLOBAL DESIGN SYSTEM & STYLES
+   ============================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Immutable Project: CAESAR Color Triad */
+  --caesar-black: #000000;
+  --accent-burgundy: #6D001A;
+  --accent-burgundy-hover: #8F0022;
+  --accent-burgundy-glow: #A80029;
+  --accent-burgundy-wash: rgba(109, 0, 26, 0.15);
+  --text-pure-white: #FFFFFF;
+
+  /* Surfaces & Elevations */
+  --bg-obsidian: #000000;
+  --bg-surface-1: #0A0A0C;
+  --bg-card: #121215;
+  --bg-glass: rgba(18, 18, 21, 0.78);
+  --bg-editorial-light: #F6F5F3;
+
+  /* Neutrals & Muted Tones */
+  --text-muted: #A1A1AA;
+  --text-dim: #52525B;
+  --border-dark: #222226;
+  --border-light: #E4E4E7;
+
+  /* Semantic Feedback Tokens */
+  --status-success: #10B981;
+  --status-warning: #F59E0B;
+
+  /* Custom Transitions */
+  --ease-caesar-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-caesar-inout: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--caesar-black);
+  color: var(--text-pure-white);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--caesar-black);
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom Scrollbar - Caesar Burgundy on Obsidian */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #6D001A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8F0022;
+}
+
+/* Font Family Utility Classes */
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+.font-heading {
+  font-family: 'Syne', sans-serif;
+}
+.font-sans {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* STRICT NON-3D HOVER ENFORCEMENT */
+*, *::before, *::after {
+  transform-style: flat !important;
+}
+
+/* Card Hover 2D Micro-Interaction */
+.caesar-card-interactive {
+  transition: border-color 0.35s var(--ease-caesar-out), box-shadow 0.35s var(--ease-caesar-out);
+}
+.caesar-card-interactive:hover {
+  border-color: var(--accent-burgundy);
+  box-shadow: 0 10px 30px -10px rgba(109, 0, 26, 0.3);
+}
+
+.caesar-card-interactive .img-viewport img {
+  transition: transform 0.65s var(--ease-caesar-out), opacity 0.5s var(--ease-caesar-out);
+}
+.caesar-card-interactive:hover .img-viewport img.img-primary {
+  transform: scale(1.04);
+}
+.caesar-card-interactive:hover .img-viewport img.img-secondary {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Directional Hairline Link Underline */
+.caesar-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.caesar-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-burgundy);
+  transform-origin: bottom right;
+  transition: transform 0.35s var(--ease-caesar-out);
+}
+.caesar-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Liquid Curtain Button Fill (2D) */
+.btn-curtain {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-curtain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-burgundy-hover);
+  transform: translateY(101%);
+  transition: transform 0.4s var(--ease-caesar-out);
+  z-index: -1;
+}
+.btn-curtain:hover::before {
+  transform: translateY(0);
+}
+
+.btn-curtain-white::before {
+  background-color: #FFFFFF !important;
+}
+.btn-curtain-white:hover {
+  color: #000000 !important;
+}
+
+/* Glow Rings & Shadows */
+.shadow-burgundy-glow {
+  box-shadow: 0 0 35px -5px rgba(109, 0, 26, 0.55);
+}
+.shadow-burgundy-subtle {
+  box-shadow: 0 10px 30px -10px rgba(109, 0, 26, 0.3);
+}
+.shadow-editorial-card {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07);
+}
+
+/* Pulse animation for live indicators */
+@keyframes caesarPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.6;
+  }
+}
+.pulse-caesar {
+  animation: caesarPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Line mask reveal */
+.line-mask-reveal {
+  overflow: hidden;
+  display: block;
+}
+.line-mask-reveal > * {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.75s var(--ease-caesar-out);
+}
+.line-mask-reveal.active > * {
+  transform: translateY(0);
+}
+
+/* High-Contrast Editorial PDP Theme Mode */
+body.pdp-editorial-theme {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+body.pdp-editorial-theme .pdp-surface-contrast {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #E4E4E7;
+}
+
+/* Mobile sticky bottom bar elevation */
+.mobile-sticky-bar {
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.6);
+}
+

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FamzPuff // THE MASTER VAPE VAULT — Disposables, Pods & Mods</title>
+  <meta name="description" content="Explore the complete FamzPuff archive of high-puff disposables, refillable pod systems, and sub-ohm cloud mods." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            caesar: {
+              black: '#000000',
+              surface: '#0A0A0C',
+              card: '#121215',
+              border: '#222226',
+              burgundy: '#6D001A',
+              'burgundy-light': '#8F0022',
+              white: '#FFFFFF',
+              ash: '#A1A1AA',
+              slate: '#52525B'
+            }
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            heading: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-caesar-black text-caesar-white antialiased selection:bg-caesar-burgundy selection:text-white">
+
+  <!-- Announcement Bar -->
+  <div class="h-[38px] w-full bg-caesar-black border-b border-caesar-border text-xs flex items-center justify-between px-4 md:px-12">
+    <div class="hidden lg:flex items-center gap-2">
+      <span class="w-1.5 h-1.5 rounded-full bg-caesar-burgundy pulse-caesar"></span>
+      <span class="font-mono text-[11px] tracking-[0.18em] text-caesar-ash uppercase">THE MASTER VAPE VAULT // 16 HARDWARE PIECES</span>
+    </div>
+    <div class="mx-auto lg:mx-0 font-sans text-[12px] text-caesar-white">
+      Free Worldwide Discreet Shipping on orders over <span class="text-caesar-burgundy-light font-mono font-bold">$99</span>
+    </div>
+    <div class="relative">
+      <button id="currency-switcher" class="currency-label font-mono text-[11px] text-caesar-white">USD $ ▾</button>
+      <div id="currency-dropdown" class="hidden absolute right-0 top-full mt-2 w-28 bg-caesar-card border border-caesar-border rounded-lg shadow-xl py-1 z-50">
+        <button onclick="window.VeloraApp.setCurrency('USD')" class="w-full text-left px-3 py-1.5 font-mono text-[11px] text-caesar-ash hover:bg-caesar-burgundy hover:text-white">USD ($)</button>
+        <button onclick="window.VeloraApp.setCurrency('PKR')" class="w-full text-left px-3 py-1.5 font-mono text-[11px] text-caesar-ash hover:bg-caesar-burgundy hover:text-white">PKR (₨)</button>
+        <button onclick="window.VeloraApp.setCurrency('EUR')" class="w-full text-left px-3 py-1.5 font-mono text-[11px] text-caesar-ash hover:bg-caesar-burgundy hover:text-white">EUR (€)</button>
+        <button onclick="window.VeloraApp.setCurrency('GBP')" class="w-full text-left px-3 py-1.5 font-mono text-[11px] text-caesar-ash hover:bg-caesar-burgundy hover:text-white">GBP (£)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 h-20 w-full bg-caesar-black/90 backdrop-blur-md border-b border-caesar-border">
+    <div class="max-w-[1440px] mx-auto h-full px-4 md:px-12 flex items-center justify-between">
+      <a href="index.html" class="font-display text-2xl font-bold tracking-[0.18em] text-caesar-white">FamzPuff</a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">HOME</a>
+        <a href="shop.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-white border-b border-caesar-burgundy pb-0.5">VAPES & PODS ▾</a>
+        <a href="shop.html?cat=disposables" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">DISPOSABLES</a>
+        <a href="shop.html?cat=pods" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">POD SYSTEMS</a>
+        <a href="sale.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-burgundy-light hover:text-white">SALE 29%</a>
+        <a href="blog.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-ash hover:text-white">VAPE JOURNAL</a>
+      </nav>
+      <div class="flex items-center gap-5">
+        <button id="search-trigger" class="hover:text-caesar-burgundy-light">🔍</button>
+        <button id="cart-drawer-trigger" class="relative hover:text-caesar-burgundy-light">
+          🛒 <span id="cart-count" class="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-caesar-burgundy text-[10px] font-mono font-bold flex items-center justify-center text-white">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="bg-caesar-surface py-14 border-b border-caesar-border">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+      <div>
+        <span class="font-mono text-xs tracking-[0.2em] text-caesar-burgundy-light uppercase mb-2 block">— AUTHENTIC VAPOR HARDWARE</span>
+        <h1 class="font-heading text-3xl md:text-5xl font-extrabold text-caesar-white uppercase">THE MASTER VAPE VAULT</h1>
+      </div>
+      <div class="flex items-center gap-3">
+        <label for="shop-sort" class="font-mono text-xs text-caesar-ash">SORT BY:</label>
+        <select id="shop-sort" class="bg-caesar-card border border-caesar-border rounded-lg px-4 py-2 text-xs font-mono text-caesar-white focus:outline-none focus:border-caesar-burgundy">
+          <option value="featured">Featured Masterpieces</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Customer Rating</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Shop Layout -->
+  <div class="max-w-[1440px] mx-auto px-4 md:px-12 py-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <aside class="lg:col-span-3 bg-caesar-card border border-caesar-border rounded-2xl p-6 lg:sticky lg:top-24 space-y-8">
+      <div>
+        <div class="flex items-center justify-between pb-3 border-b border-caesar-border mb-4">
+          <h3 class="font-heading text-xs font-bold text-white uppercase tracking-wider">FILTER HARDWARE</h3>
+          <button id="reset-filters-btn" class="font-mono text-[10px] text-caesar-burgundy-light hover:underline">RESET ALL</button>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h4 class="font-sans text-xs font-bold text-caesar-white uppercase mb-3">Device Category</h4>
+        <div class="space-y-2 text-xs font-sans text-caesar-ash">
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="all" checked class="accent-[#6D001A]" />
+            <span>All Devices (16)</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="disposables" class="accent-[#6D001A]" />
+            <span>Disposable Vapes (6)</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="pods" class="accent-[#6D001A]" />
+            <span>Refillable Pod Systems (3)</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="mods" class="accent-[#6D001A]" />
+            <span>Sub-Ohm Vape Mods (3)</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="eliquids" class="accent-[#6D001A]" />
+            <span>E-Liquids & Nic Salts (2)</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer hover:text-white">
+            <input type="radio" name="shop-category" value="accessories" class="accent-[#6D001A]" />
+            <span>Replacement Coils & Pods (2)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Price Slider -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <h4 class="font-sans text-xs font-bold text-caesar-white uppercase">Max Price</h4>
+          <span id="price-range-val" class="font-mono text-xs text-caesar-burgundy-light font-bold">$100</span>
+        </div>
+        <input id="price-range-input" type="range" min="10" max="100" value="100" class="w-full accent-[#6D001A]" />
+      </div>
+    </aside>
+
+    <!-- Product Grid -->
+    <main class="lg:col-span-9">
+      <div id="shop-product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+      <div id="shop-empty-state" class="hidden py-24 text-center text-caesar-ash">
+        <p class="font-heading text-lg text-white mb-2">NO DEVICES MATCH THIS CRITERIA</p>
+        <p class="text-xs text-caesar-slate mb-6">Try resetting filters to explore all 16 FamzPuff products.</p>
+        <button onclick="document.getElementById('reset-filters-btn').click()" class="px-6 py-2.5 rounded-lg bg-caesar-burgundy text-white font-mono text-xs uppercase font-bold">RESET FILTERS</button>
+      </div>
+    </main>
+  </div>
+
+  <footer class="bg-caesar-black border-t border-caesar-border py-12 text-center text-xs text-caesar-ash">
+    <p class="font-display text-xl text-white mb-2">FamzPuff</p>
+    <p>© 2026 FAMZPUFF INC. ALL RIGHTS RESERVED. 21+ ONLY.</p>
+  </footer>
+
+  <!-- Overlays -->
+  <div id="cart-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-[440px] bg-caesar-card border-l border-caesar-border z-[95] translate-x-full transition-transform duration-300 flex flex-col justify-between" aria-label="Shopping Cart">
+    <div class="p-6 border-b border-caesar-border flex items-center justify-between">
+      <h3 class="font-heading text-lg font-bold text-white uppercase">VAPOR BAG</h3>
+      <button id="cart-close-btn" class="text-caesar-ash hover:text-white">✕</button>
+    </div>
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+    <div class="p-6 border-t border-caesar-border bg-caesar-surface">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-xs text-caesar-ash uppercase">Subtotal</span>
+        <span id="cart-subtotal" class="font-mono text-lg font-bold text-white">$0.00</span>
+      </div>
+      <a href="checkout.html" class="btn-curtain block w-full py-3.5 text-center rounded-lg bg-caesar-burgundy text-white font-sans text-xs font-bold uppercase tracking-wider">PROCEED TO CHECKOUT →</a>
+    </div>
+  </aside>
+
+  <div id="search-modal" class="hidden fixed inset-0 z-[99] bg-black/85 backdrop-blur-md flex flex-col items-center p-6 md:p-12 overflow-y-auto">
+    <div class="w-full max-w-3xl">
+      <div class="flex items-center justify-between pb-6 border-b border-caesar-border">
+        <input id="search-input" type="text" placeholder="Search vapes, pods, coils..." class="w-full bg-transparent text-xl text-white placeholder:text-caesar-slate focus:outline-none" />
+        <button id="search-close-btn" class="text-caesar-slate hover:text-white font-mono text-sm px-3 py-1 border border-caesar-border rounded">ESC</button>
+      </div>
+      <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8"></div>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('shop-product-grid');
+      const emptyState = document.getElementById('shop-empty-state');
+      const sortSelect = document.getElementById('shop-sort');
+      const priceInput = document.getElementById('price-range-input');
+      const priceVal = document.getElementById('price-range-val');
+      const resetBtn = document.getElementById('reset-filters-btn');
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialCat = urlParams.get('cat') || 'all';
+
+      let selectedCategory = initialCat;
+      let maxPrice = 100;
+      let sortBy = 'featured';
+
+      const matchingRadio = document.querySelector(`input[name="shop-category"][value="${selectedCategory}"]`);
+      if (matchingRadio) matchingRadio.checked = true;
+
+      function renderShopProducts() {
+        let items = [...window.VELORA_CATALOG];
+
+        if (selectedCategory === 'disposables') {
+          items = items.filter(p => p.categoryKey === 'disposables');
+        } else if (selectedCategory === 'pods') {
+          items = items.filter(p => p.categoryKey === 'pods');
+        } else if (selectedCategory === 'mods') {
+          items = items.filter(p => p.categoryKey === 'mods');
+        } else if (selectedCategory === 'eliquids') {
+          items = items.filter(p => p.categoryKey === 'eliquids');
+        } else if (selectedCategory === 'accessories') {
+          items = items.filter(p => p.categoryKey === 'accessories');
+        }
+
+        items = items.filter(p => p.priceUSD <= maxPrice);
+
+        if (sortBy === 'price-low') items.sort((a, b) => a.priceUSD - b.priceUSD);
+        else if (sortBy === 'price-high') items.sort((a, b) => b.priceUSD - a.priceUSD);
+        else if (sortBy === 'rating') items.sort((a, b) => b.rating - a.rating);
+
+        if (items.length === 0) {
+          grid.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+        grid.innerHTML = items.map(prod => `
+          <div class="caesar-card-interactive group bg-caesar-card border border-caesar-border rounded-xl p-5 flex flex-col justify-between relative">
+            <div class="flex items-center justify-between mb-2">
+              ${prod.discountBadge ? `<span class="px-2 py-0.5 rounded bg-caesar-burgundy font-mono text-[10px] font-bold text-white uppercase">${prod.discountBadge}</span>` : `<span></span>`}
+              <button onclick="window.VeloraApp.toggleWishlist('${prod.id}', this)" class="text-caesar-ash hover:text-caesar-burgundy text-sm">♡</button>
+            </div>
+
+            <a href="product.html?id=${prod.id}" class="img-viewport block h-56 bg-[#0D0D10] rounded-lg mb-4 overflow-hidden relative">
+              <img src="${prod.images[0]}" alt="${prod.name}" class="img-primary w-full h-full object-cover" />
+            </a>
+
+            <div>
+              <span class="font-mono text-[10px] text-caesar-burgundy-light uppercase tracking-wider block">${prod.category}</span>
+              <a href="product.html?id=${prod.id}" class="font-sans text-sm font-semibold text-caesar-white hover:text-caesar-burgundy-light block mt-0.5 line-clamp-1">${prod.name}</a>
+              <div class="flex items-center gap-1 text-xs text-caesar-burgundy mt-1">
+                <span>★★★★★</span>
+                <span class="font-mono text-[10px] text-caesar-ash">(${prod.reviewCount})</span>
+              </div>
+            </div>
+
+            <div class="flex items-end justify-between mt-4 pt-3 border-t border-caesar-border/60">
+              <span class="font-mono text-base font-bold text-caesar-white" data-price-usd="${prod.priceUSD}" data-price-pkr="${prod.pricePKR || ''}">
+                ${window.VeloraApp.formatPrice(prod.priceUSD, prod.pricePKR)}
+              </span>
+              <button onclick="window.VeloraApp.addToCart(window.getVeloraProduct('${prod.id}'), '${prod.colorways ? prod.colorways[0].name : 'Default'}', '${prod.sizes ? prod.sizes[0] : 'Standard'}', 1); this.innerHTML='✓'; setTimeout(()=>this.innerHTML='🛒', 1200);" class="w-10 h-10 rounded-lg border border-caesar-border bg-caesar-surface text-caesar-white hover:bg-caesar-burgundy hover:border-caesar-burgundy flex items-center justify-center transition-colors">
+                🛒
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      document.querySelectorAll('input[name="shop-category"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          selectedCategory = e.target.value;
+          renderShopProducts();
+        });
+      });
+
+      if (priceInput) {
+        priceInput.addEventListener('input', (e) => {
+          maxPrice = parseFloat(e.target.value);
+          priceVal.textContent = `$${maxPrice}`;
+          renderShopProducts();
+        });
+      }
+
+      if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+          sortBy = e.target.value;
+          renderShopProducts();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          selectedCategory = 'all';
+          maxPrice = 100;
+          priceInput.value = 100;
+          priceVal.textContent = '$100';
+          sortBy = 'featured';
+          sortSelect.value = 'featured';
+          const defaultRadio = document.querySelector('input[name="shop-category"][value="all"]');
+          if (defaultRadio) defaultRadio.checked = true;
+          renderShopProducts();
+        });
+      }
+
+      renderShopProducts();
+    });
+  </script>
+</body>
+</html>

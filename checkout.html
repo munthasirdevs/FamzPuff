@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FamzPuff // SECURE DISCREET CHECKOUT (21+ ONLY)</title>
+  <meta name="description" content="256-bit encrypted checkout with discrete packaging for FamzPuff vapes and pod systems." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            caesar: {
+              black: '#000000',
+              surface: '#0A0A0C',
+              card: '#121215',
+              border: '#222226',
+              burgundy: '#6D001A',
+              'burgundy-light': '#8F0022',
+              white: '#FFFFFF',
+              ash: '#A1A1AA',
+              slate: '#52525B'
+            }
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            heading: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-caesar-black text-caesar-white antialiased selection:bg-caesar-burgundy selection:text-white">
+
+  <!-- Header -->
+  <header class="h-20 w-full bg-caesar-black border-b border-caesar-border flex items-center justify-between px-6 md:px-16">
+    <a href="index.html" class="font-display text-2xl font-bold tracking-[0.18em] text-white">FamzPuff</a>
+    <div class="flex items-center gap-2 text-xs font-mono text-caesar-ash">
+      <span class="text-emerald-500">🔒</span>
+      <span>256-BIT ENCRYPTED · 21+ ADULT VERIFIED</span>
+    </div>
+  </header>
+
+  <!-- Checkout Grid -->
+  <main class="max-w-[1440px] mx-auto px-4 md:px-16 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-7 space-y-10">
+      <!-- Express Checkout -->
+      <div class="bg-caesar-card border border-caesar-border rounded-2xl p-6">
+        <span class="font-mono text-[10px] tracking-[0.2em] text-caesar-ash uppercase block text-center mb-3">EXPRESS DISPATCH CHECKOUT</span>
+        <div class="grid grid-cols-2 gap-3">
+          <button type="button" onclick="alert('Redirecting to Apple Pay age-verified authorization...')" class="py-3.5 rounded-lg bg-white text-black font-sans text-xs font-bold flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors">
+            <span></span> Pay
+          </button>
+          <button type="button" onclick="alert('Redirecting to Shop Pay fast checkout...')" class="py-3.5 rounded-lg bg-[#5A31F4] text-white font-sans text-xs font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+            shop<span class="font-light">Pay</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-mono text-caesar-slate">
+        <div class="flex-1 h-[1px] bg-caesar-border"></div>
+        <span>OR CONTINUE WITH STANDARD CHECKOUT</span>
+        <div class="flex-1 h-[1px] bg-caesar-border"></div>
+      </div>
+
+      <form id="checkout-form" class="space-y-8">
+        <!-- Step 1: Contact -->
+        <div class="bg-caesar-card border border-caesar-border rounded-2xl p-6">
+          <h2 class="font-heading text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center justify-between">
+            <span>1. ADULT VERIFICATION & CONTACT</span>
+            <span class="font-mono text-xs text-caesar-burgundy-light font-normal">STEP 1/3</span>
+          </h2>
+          <div class="space-y-3">
+            <input type="email" required placeholder="Email Address for Tracking & Verification" class="w-full bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+            <div class="p-3 bg-caesar-surface border border-caesar-border rounded-lg text-xs text-caesar-ash flex items-start gap-2">
+              <input type="checkbox" required checked class="accent-[#6D001A] mt-0.5" />
+              <span>I certify under penalty of perjury that I am at least <strong>21 years of age</strong> and legally eligible to purchase vapor products.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Shipping -->
+        <div class="bg-caesar-card border border-caesar-border rounded-2xl p-6">
+          <h2 class="font-heading text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center justify-between">
+            <span>2. DISCREET SHIPPING DESTINATION</span>
+            <span class="font-mono text-xs text-caesar-burgundy-light font-normal">STEP 2/3</span>
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" required placeholder="First Name" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+            <input type="text" required placeholder="Last Name" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+          </div>
+          <div class="space-y-3 mb-4">
+            <input type="text" required placeholder="Street Address, Apt, Suite (Plain Box Delivery)" class="w-full bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <input type="text" required placeholder="City" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+              <input type="text" required placeholder="State / Province" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+              <input type="text" required placeholder="Postal Code" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy" />
+            </div>
+          </div>
+
+          <h3 class="font-sans text-xs font-bold text-caesar-white uppercase mb-2">SHIPPING METHOD</h3>
+          <div class="space-y-2">
+            <label class="flex items-center justify-between p-3.5 rounded-lg border border-caesar-burgundy bg-caesar-burgundy/10 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="shipping-speed" value="standard" checked class="accent-[#6D001A]" />
+                <div>
+                  <div class="font-sans text-xs font-bold text-white">Discreet Standard Courier (Plain Box)</div>
+                  <div class="text-[11px] text-caesar-ash">3 to 5 business days</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs font-bold text-emerald-400">FREE</span>
+            </label>
+            <label class="flex items-center justify-between p-3.5 rounded-lg border border-caesar-border bg-caesar-surface cursor-pointer hover:border-caesar-burgundy">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="shipping-speed" value="express" class="accent-[#6D001A]" />
+                <div>
+                  <div class="font-sans text-xs font-bold text-white">Priority Express Dispatch (Adult Signature)</div>
+                  <div class="text-[11px] text-caesar-ash">1 to 2 business days expedited</div>
+                </div>
+              </div>
+              <span class="font-mono text-xs font-bold text-white">$15.00</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="bg-caesar-card border border-caesar-border rounded-2xl p-6">
+          <h2 class="font-heading text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center justify-between">
+            <span>3. PAYMENT PROTECTION</span>
+            <span class="font-mono text-xs text-caesar-burgundy-light font-normal">STEP 3/3</span>
+          </h2>
+          <div class="space-y-3">
+            <input type="text" placeholder="Card Number (4000 1234 5678 9010)" class="w-full bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy font-mono" />
+            <div class="grid grid-cols-2 gap-3">
+              <input type="text" placeholder="MM / YY" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy font-mono" />
+              <input type="text" placeholder="CVC" class="bg-caesar-black border border-caesar-border rounded-lg px-4 py-3.5 text-xs text-white placeholder:text-caesar-slate focus:outline-none focus:border-caesar-burgundy font-mono" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-curtain w-full py-5 rounded-xl bg-caesar-burgundy text-white font-sans text-sm font-bold uppercase tracking-[0.16em] shadow-burgundy-glow">
+          CONFIRM FAMZPUFF ORDER →
+        </button>
+      </form>
+    </div>
+
+    <!-- Order Summary -->
+    <aside class="lg:col-span-5 bg-caesar-card border border-caesar-border rounded-2xl p-6 lg:sticky lg:top-24 space-y-6">
+      <h3 class="font-heading text-sm font-bold text-white uppercase tracking-wider pb-3 border-b border-caesar-border">
+        VAPOR BAG SUMMARY (<span class="cart-count-badge">2</span>)
+      </h3>
+
+      <div id="checkout-items-list" class="space-y-3 divide-y divide-caesar-border/40"></div>
+
+      <div class="pt-4 border-t border-caesar-border">
+        <div class="flex gap-2">
+          <input id="checkout-promo" type="text" placeholder="Coupon (Try FAMZ15)" class="flex-1 bg-caesar-black border border-caesar-border rounded-lg px-3 py-2.5 text-xs text-white uppercase font-mono focus:outline-none focus:border-caesar-burgundy" />
+          <button id="apply-promo-btn" type="button" class="px-4 py-2.5 rounded-lg bg-caesar-surface border border-caesar-border hover:border-caesar-burgundy text-xs font-mono font-bold text-white">APPLY</button>
+        </div>
+        <div id="promo-applied-badge" class="hidden mt-2 text-xs font-mono text-emerald-400">
+          ✓ Code applied (-15% VIP discount)
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-caesar-border space-y-2 text-xs font-sans text-caesar-ash">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="co-subtotal" class="font-mono text-white">$64.98</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Discreet Shipping</span>
+          <span class="font-mono text-emerald-400">FREE</span>
+        </div>
+        <div id="co-discount-row" class="hidden flex justify-between text-caesar-burgundy-light">
+          <span>VIP Discount (15%)</span>
+          <span id="co-discount-val" class="font-mono font-bold">-$9.75</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-white pt-3 border-t border-caesar-border">
+          <span>Total Order Value</span>
+          <span id="co-total" class="font-mono text-xl text-white">$64.98</span>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div id="order-confirm-modal" class="hidden fixed inset-0 z-[99] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-caesar-card border border-caesar-border rounded-2xl max-w-lg w-full p-8 text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-caesar-burgundy/20 border border-caesar-burgundy text-3xl mx-auto flex items-center justify-center text-caesar-burgundy-light">
+        ✓
+      </div>
+      <span class="font-mono text-xs tracking-[0.2em] text-caesar-burgundy-light uppercase block">DISPATCH RESERVED</span>
+      <h3 class="font-heading text-2xl font-bold text-white uppercase">ORDER CONFIRMED</h3>
+      <p class="font-sans text-xs text-caesar-ash leading-relaxed">
+        Your FamzPuff order <span class="font-mono text-white font-bold">#FP-982104</span> has been secured. Discreet unbranded packaging and carrier tracking details sent to your email.
+      </p>
+      <div class="pt-4">
+        <a href="index.html" class="inline-block px-8 py-3.5 rounded-lg bg-caesar-burgundy text-white font-mono text-xs uppercase font-bold tracking-wider">
+          RETURN TO HOME VAULT
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const itemsList = document.getElementById('checkout-items-list');
+      const subtotalEl = document.getElementById('co-subtotal');
+      const totalEl = document.getElementById('co-total');
+      const promoBtn = document.getElementById('apply-promo-btn');
+      const promoInput = document.getElementById('checkout-promo');
+      const promoBadge = document.getElementById('promo-applied-badge');
+      const discountRow = document.getElementById('co-discount-row');
+      const discountVal = document.getElementById('co-discount-val');
+      const form = document.getElementById('checkout-form');
+      const confirmModal = document.getElementById('order-confirm-modal');
+
+      const cart = JSON.parse(localStorage.getItem('velora_cart')) || [];
+      let subtotal = 0;
+
+      if (itemsList) {
+        itemsList.innerHTML = cart.map(item => {
+          subtotal += item.priceUSD * item.quantity;
+          return `
+            <div class="flex items-center gap-3 pt-3">
+              <img src="${item.image}" alt="${item.name}" class="w-12 h-14 object-cover rounded bg-black flex-shrink-0" />
+              <div class="flex-1">
+                <p class="font-sans text-xs font-semibold text-white line-clamp-1">${item.name}</p>
+                <p class="text-[11px] text-caesar-ash">${item.color} · ${item.size} · Qty: ${item.quantity}</p>
+              </div>
+              <span class="font-mono text-xs font-bold text-white">$${(item.priceUSD * item.quantity).toFixed(2)}</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      let total = subtotal;
+      if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+      if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+      if (promoBtn) {
+        promoBtn.addEventListener('click', () => {
+          const code = (promoInput.value || '').trim().toUpperCase();
+          if (code === 'FAMZ15' || code === 'CAESAR15') {
+            const discount = subtotal * 0.15;
+            total = subtotal - discount;
+            promoBadge.classList.remove('hidden');
+            discountRow.classList.remove('hidden');
+            discountVal.textContent = `-$${discount.toFixed(2)}`;
+            totalEl.textContent = `$${total.toFixed(2)}`;
+          } else {
+            alert('Invalid coupon code. Try FAMZ15.');
+          }
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('velora_cart');
+          confirmModal.classList.remove('hidden');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
