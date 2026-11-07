@@ -1,0 +1,1059 @@
+﻿VELORA CAESAR: Luxury Streetwear & Architectural Footwear Frontend Design System, UI/UX Specification, and GSAP Motion Blueprint
+1. Visual Deconstruction & Hybrid Brand Architecture
+1.1 Reference Synthesis: Merging VELORA, Project CAESAR, and ELITE SOLE
+The architectural blueprint for this e-commerce platform synthesizes three distinct visual references into a unified, high-converting luxury streetwear and footwear flagship1. Rather than treating the three reference graphics as isolated templates, the system extracts the strongest structural, chromatic, and merchandising DNA from each source to form a cohesive hybrid brand titled VELORA, operating under its flagship seasonal creative direction, Project: CAESAR3.
+The first reference (VELORA Product Detail Page) contributes the brand's primary wordmark, typographic clarity, and high-trust product detail architecture2. Specifically, it establishes a two-column upper buy-box featuring a left-hand vertical thumbnail rail alongside a tall studio portrait viewport, paired with a right-hand configuration column containing status badges (New Arrival, 33% OFF), star ratings with review counts, tactile color swatches, a five-tier size matrix (S through XXL) with an integrated Size Guide trigger, a dominant full-width Add to Cart action paired with a square wishlist toggle, and a three-item micro-trust strip (Free Shipping, Easy Returns, Secure Payment)2. Below the fold, the first reference provides an interactive four-tab specification module (Details, Materials, Size & Fit, Shipping & Returns) split against a macro textile photograph showing fabric grain and chest typography, concluding with a four-column You May Also Like cross-sell row6.
+The second reference (Project: CAESAR by @logoexposure) establishes the chromatic and tactile foundation of the entire digital flagship. It replaces generic e-commerce colors with a high-contrast triad consisting of pure Black (#000000), deep arterial Burgundy (#6D001A), and stark White (#FFFFFF)1. Equally important are the three material textures anchored at the base of the Project: CAESAR reference board: matte obsidian carbon and visor hardware under the black column, liquid draped burgundy satin and silk under the burgundy column, and billowing white gossamer silk under the white column. These three textures dictate the website's lighting, surface sheen, and ambient WebGL shader behavior10.
+The third reference (ELITE SOLE Dark-Mode Footwear Storefront) supplies the structural pacing and merchandising rhythm of the dark-mode homepage11. It contributes the horizontal five-card Featured Collections category selector (Running, Lifestyle, Sneakers, Training, Outdoor), the four-column Top Picks For You best-seller grid with inline color dots and bottom-right quick-cart square buttons, the dramatic mid-page Urban Motion Series spotlight banner featuring a floating hero shoe encircled by a luminous orbital halo, the four-column horizontal value-proposition strip, the three-column Real Reviews, Real Trust social proof section with customer avatars, the Join Elite Club newsletter acquisition banner, and the four-column footer with integrated payment trust badges2.
+
+
+Reference Source
+	Extracted Structural & Visual Elements
+	Transformation in the Hybrid VELORA // CAESAR System
+	Reference 1: VELORA Apparel PDP
+	Top announcement bar, sticky header navigation, vertical-rail gallery, buy-box hierarchy, 4-tab detail/macro split, You May Also Like 4-card grid2.
+	Preserves exact layout geometry and conversion psychology; elevates surface tokens to support seamless dark-to-editorial contrast with #6D001A active states and zero 3D tilt2.
+	Reference 2: Project: CAESAR Palette
+	Core triad of Black (#000000), Burgundy (#6D001A), and White (#FFFFFF); textures of matte obsidian tech, liquid burgundy silk, and white silk waves1.
+	Becomes the strict global color law. Replaces the yellow/gold accents of Reference 3 with #6D001A Burgundy and crimson-burgundy specular highlights; inspires the WebGL liquid silk background3.
+	Reference 3: ELITE SOLE Dark Homepage
+	Category slider, 4-column footwear grid with quick-add icons, orbital-ring spotlight banner, 4-pillar trust bar, 3-card review row, club signup box, 4-column footer2.
+	Re-engineered under the VELORA luxury streetwear & footwear identity; integrates heavyweight apparel alongside technical footwear in a unified #000000 obsidian environment1.
+	1.2 Brand Identity, Governing Emotion, and Dark-Luxury Conversion Psychology
+In contemporary luxury streetwear and contemporary designer e-commerce, visual restraint and atmospheric tension directly govern perceived garment value and conversion rate2. While the average fashion e-commerce store converts between 2.9% and 3.3%, top-tier luxury streetwear flagships reach 4.7% by combining editorial authority with frictionless mobile-first utility2. When a storefront relies on bright, saturated retail templates, heavyweight cotton hoodies and technical silhouettes read as mass-market commodities; conversely, when a storefront prioritizes abstract art over usability, shoppers abandon the cart due to missing sizing or material clarity2.
+The hybrid VELORA (Project: CAESAR Edition) resolves this tension by establishing "Architectural Defiance & Tactile Restraint" as its governing engineering constraint3. Every copy choice, interaction speed, and color decision is tested against this constraint before a component is written3. The homepage immerses the visitor in a deep #000000 obsidian theater illuminated by #6D001A arterial burgundy silk motion and #FFFFFF razor-sharp typography, evoking the exclusivity of a limited-drop showroom1. When the user transitions into product evaluation on the Product Detail Page (PDP), the interface prioritizes scannable merchandising precision—delivering exact GSM fabric weights, model dimensions, flat garment measurements, and instant size-guide overlays so the buyer experiences zero hesitation at checkout6.
+1.3 Frontend Technology Stack & Architectural Constraints
+The frontend architecture is engineered strictly within a lightweight, dependency-minimal browser stack to guarantee a Google PageSpeed Insights mobile score above 85 and sub-second interactive readiness2. Semantic HTML5 markup provides an accessible, SEO-structured DOM utilizing <header>, <main>, <section>, <article>, <aside>, <nav>, and <dialog> elements paired with aria-expanded, aria-live, and data-* state attributes3. Styling is driven by Tailwind CSS configured with custom design tokens mapped directly to the Project: CAESAR color palette, fluid typography scales (clamp()), and zero-bloat utility composition, supplemented by a dedicated styles.css sheet reserved for CSS custom properties (--caesar-black, --caesar-burgundy, --caesar-white), custom scrollbar styling, and hardware-accelerated clip-path masks (clip-path: inset(...))3.
+Interactive state management is executed entirely in modular Vanilla JavaScript (ES6+), which handles product catalog rendering, multi-facet filtering, reactive cart state with localStorage persistence, tab switching, gallery crossfades, size guide calculations, and custom cursor tracking without framework overhead10. Motion choreography relies on GSAP 3 (GreenSock Animation Platform), utilizing the core gsap engine alongside ScrollTrigger, Flip, and CustomEase for the creative preloader sequence, text line-mask reveals, scrubbed parallax, and pinned horizontal transitions10. Finally, ambient 3D rendering is restricted to a single shared WebGL / Three.js <canvas> context running a custom GLSL fragment shader for the liquid burgundy silk background in the Hero and Spotlight sections, automatically pausing via IntersectionObserver whenever scrolled out of view10.
+2. Global Design System: Color Tokens, Typography, and Layout Grid
+2.1 The Project CAESAR Color System & Extended UI Surface Tokens
+A production e-commerce interface cannot rely solely on three raw hex values without intermediate surface elevations, border hairlines, and semantic feedback states3. The design system locks the three Project: CAESAR reference colors—Black (#000000), Burgundy (#6D001A), and White (#FFFFFF)—as immutable primary pillars and derives a mathematically calibrated scale of dark obsidian surfaces, burgundy luminescence states, and neutral editorial tones1.
+
+
+Token Name
+	CSS Variable / Tailwind Class
+	Hex Code
+	RGB / CMYK Reference
+	Exact UI Application Across the Website
+	Caesar Pitch Black
+	--bg-obsidian / bg-caesar-black
+	#000000
+	RGB(0, 0, 0) / CMYK(75, 68, 67, 89)
+	Primary background of the Homepage, Preloader, Footer, Announcement Bar, and Hero void1.
+	Caesar Deep Burgundy
+	--accent-burgundy / bg-caesar-burgundy
+	#6D001A
+	RGB(109, 0, 26) / CMYK(33, 68, 67, 89)
+	Primary brand accent: CTA buttons, active badges (33% OFF), orbital glow rings, preloader laser, active borders3.
+	Caesar Pure White
+	--text-pure-white / text-caesar-white
+	#FFFFFF
+	RGB(255, 255, 255) / CMYK(0, 0, 0, 0)
+	Primary display headlines (H1–H3), active navigation links, price tags on dark surfaces, high-contrast PDP canvas1.
+	Obsidian Surface 01
+	--bg-surface-1 / bg-caesar-surface
+	#0A0A0C
+	RGB(10, 10, 12)
+	Alternating section background on Homepage (Top Picks, Trust Strip) to create subtle depth separation12.
+	Obsidian Card Surface
+	--bg-card / bg-caesar-card
+	#121215
+	RGB(18, 18, 21)
+	Interior fill for dark product cards, category boxes, testimonial cards, and newsletter module (matches Image 3 cards)12.
+	Obsidian Elevated Glass
+	--bg-glass / bg-caesar-glass
+	rgba(18, 18, 21, 0.78)
+	backdrop-filter: blur(16px)
+	Sticky header background on scroll, floating filter bar, and slide-out cart drawer backdrop17.
+	Arterial Burgundy Hover
+	--accent-burgundy-hover / bg-caesar-burgundy-light
+	#8F0022
+	RGB(143, 0, 34)
+	Hover/focus illumination state for #6D001A buttons, interactive links, and WebGL silk specular peaks10.
+	Burgundy Muted Wash
+	--accent-burgundy-wash / bg-caesar-burgundy/15
+	rgba(109, 0, 26, 0.15)
+	Alpha tint of #6D001A
+	Pill badge backgrounds (New Arrival), selected size box tint, and subtle radial spotlight gradients.
+	Editorial Alabaster
+	--bg-editorial-light / bg-caesar-alabaster
+	#F6F5F3
+	RGB(246, 245, 243)
+	Studio image framing backdrop on the high-contrast PDP gallery (matches the soft light-gray portrait cards in Image 1)2.
+	Ash Silver (Secondary Text)
+	--text-muted / text-caesar-ash
+	#A1A1AA
+	RGB(161, 161, 170)
+	Body copy on dark backgrounds, product subtitles, review timestamps, and footer navigation links.
+	Charcoal Slate (Tertiary)
+	--text-dim / text-caesar-slate
+	#52525B
+	RGB(82, 82, 91)
+	Strikethrough compare-at prices ($89.99), inactive tab labels, input placeholders, and disabled size buttons.
+	Hairline Border Dark
+	--border-dark / border-caesar-border
+	#222226
+	RGB(34, 34, 38)
+	1px structural borders around dark product cards, category boxes, review cards, and table dividers.
+	Hairline Border Light
+	--border-light / border-caesar-border-light
+	#E4E4E7
+	RGB(228, 228, 231)
+	1px structural borders on the light-mode PDP size buttons, tabs, and thumbnail outlines (matches Image 1).
+	Semantic Status Tokens
+	--status-success / --status-warning
+	#10B981 / #F59E0B
+	Emerald / Amber
+	In-stock pulse dot (#10B981), verified buyer checkmarks, and star rating icons (#F59E0B or #6D001A editorial stars).
+	2.2 Typographic Hierarchy & Editorial Scale
+Typography in luxury streetwear communicates price point and cultural authority before a visitor reads a single word2. Well-designed fashion platforms treat typography as a primary structural asset, using tracking and weight to carry hierarchy before font size does2. Analysis of the three reference graphics reveals three distinct typographic roles: the brand wordmark (VELORA in Reference 1) requires a sharp-terminal modern serif display face that projects fashion-house authority2; the architectural streetwear headlines (FEATURED COLLECTIONS and URBAN MOTION SERIES in Reference 3, as well as BLACK / BURGUNDY / WHITE in Reference 2) require a bold, wide-stance geometric grotesk sans-serif set in uppercase with tight leading2; and the functional commerce interface (Essential Oversized Hoodie, prices, tabs, and descriptions in Reference 1) demands a clean neo-grotesque sans-serif paired with a technical monospace face for SKU codes, GSM weights, and preloader counters16.
+To achieve maximum performance via Google Fonts without external licensing bottlenecks, the design system binds 'Cinzel' (weights 600 and 700) as font-display for the VELORA masthead and drop titles; 'Syne' (weights 700 and 800) as font-heading for bold uppercase section headers; 'Plus Jakarta Sans' (weights 400, 500, 600, and 700) as font-sans for PDP titles, body copy, and navigation; and 'JetBrains Mono' (weights 400, 500, and 700) as font-mono for the 000–100 preloader counter, prices, and technical telemetry3.
+Element / Role
+	HTML Tag
+	Font Family
+	Desktop Size (rem/px)
+	Mobile Size (rem/px)
+	Line Height
+	Letter Spacing
+	Weight & Case
+	Hero Display Title
+	<h1> (Home)
+	font-heading (Syne)
+	4.5rem (72px)
+	2.5rem (40px)
+	1.02
+	-0.03em
+	800 Uppercase
+	PDP Product Title
+	<h1> (PDP)
+	font-sans (Plus Jakarta Sans)
+	2.25rem (36px)
+	1.75rem (28px)
+	1.15
+	-0.02em
+	700 Title Case
+	Section Heading
+	<h2>
+	font-heading (Syne)
+	2.25rem (36px)
+	1.625rem (26px)
+	1.12
+	0.02em
+	700 Uppercase
+	Spotlight Banner H2
+	<h2> (Banner)
+	font-heading (Syne)
+	3.0rem (48px)
+	2.0rem (32px)
+	1.08
+	0.01em
+	800 Uppercase
+	Section Eyebrow
+	<span> / <p>
+	font-mono (JetBrains Mono)
+	0.75rem (12px)
+	0.6875rem (11px)
+	1.4
+	0.22em
+	500 Uppercase
+	Card Title / H3
+	<h3>
+	font-sans (Plus Jakarta Sans)
+	1.0rem (16px)
+	0.9375rem (15px)
+	1.4
+	-0.01em
+	600 Title Case
+	Price Display (Large)
+	<span>
+	font-mono (JetBrains Mono)
+	1.75rem (28px)
+	1.5rem (24px)
+	1.2
+	-0.02em
+	700 Numeric
+	Body Copy (Standard)
+	<p>
+	font-sans (Plus Jakarta Sans)
+	0.9375rem (15px)
+	0.875rem (14px)
+	1.65
+	0.005em
+	400 Sentence
+	Navigation & Buttons
+	<a> / <button>
+	font-sans (Plus Jakarta Sans)
+	0.8125rem (13px)
+	0.8125rem (13px)
+	1.0
+	0.12em
+	600 Uppercase
+	Micro Badge / Pill
+	<span>
+	font-mono (JetBrains Mono)
+	0.6875rem (11px)
+	0.6875rem (11px)
+	1.0
+	0.08em
+	600 Uppercase
+	2.3 Spatial Grid, Containers, Elevation, and Tailwind CSS Configuration
+The spatial architecture enforces strict geometric alignment across all viewports, treating whitespace and negative obsidian space as active structural elements rather than mere absence3. Every major section is housed inside a maximum container width of 1440px (max-w-[1440px] mx-auto) with responsive horizontal padding set to px-4 (16px) on mobile viewports below 640px, px-8 (32px) on tablet viewports from 768px to 1024px, and px-12 (48px) on desktop viewports above 1024px. Internal layouts adhere to a 12-column CSS Grid (grid-cols-4 gap-4 on mobile, grid-cols-8 gap-6 on tablet, and grid-cols-12 gap-6 with a 24px gutter on desktop), while vertical section rhythm is standardized at py-16 (64px) on mobile and py-24 (96px) on desktop, separated by 1px solid #222226 structural hairlines. Border radii mirror the rounded geometry of Reference Images 1 and 3, assigning rounded-xl (12px) to product and category cards, rounded-2xl (16px) to the PDP main portrait frame and macro textile image, rounded-lg (8px) to thumbnail cards, size buttons, and primary CTA buttons, and rounded-full (9999px) to status pills (New Arrival) and color swatches.
+
+
+
+
+
+
+JavaScript
+// tailwind.config.js
+module.exports = {
+ darkMode: 'class',
+ content: ['./*.html', './js/**/*.js'],
+ theme: {
+   extend: {
+     colors: {
+       caesar: {
+         black: '#000000',
+         surface: '#0A0A0C',
+         card: '#121215',
+         border: '#222226',
+         burgundy: '#6D001A',
+         'burgundy-light': '#8F0022',
+         'burgundy-glow': '#A80029',
+         white: '#FFFFFF',
+         alabaster: '#F6F5F3',
+         ash: '#A1A1AA',
+         slate: '#52525B',
+         'border-light': '#E4E4E7',
+       }
+     },
+     fontFamily: {
+       display: ['Cinzel', 'serif'],
+       heading: ['Syne', 'sans-serif'],
+       sans: ['Plus Jakarta Sans', 'sans-serif'],
+       mono: ['JetBrains Mono', 'monospace'],
+     },
+     boxShadow: {
+       'burgundy-glow': '0 0 35px -5px rgba(109, 0, 26, 0.55)',
+       'burgundy-subtle': '0 10px 30px -10px rgba(109, 0, 26, 0.3)',
+       'editorial-card': '0 20px 40px -15px rgba(0, 0, 0, 0.07)',
+     },
+     transitionTimingFunction: {
+       'caesar-out': 'cubic-bezier(0.16, 1, 0.3, 1)',
+       'caesar-inout': 'cubic-bezier(0.76, 0, 0.24, 1)',
+     }
+   }
+ },
+ plugins: [],
+};
+
+3. Creative Motion Architecture: Preloader, Ambient 3D Silk Canvas, and Non-3D Hover Rules
+3.1 Creative Loading Screen: "The Arterial Silk & Monolith Dock" GSAP Preloader
+A luxury streetwear flagship requires a theatrical entry sequence that masks initial asset hydration, builds anticipation, and establishes the #000000 / #6D001A / #FFFFFF identity in under 2.6 seconds18. Standard spinning wheels degrade brand equity; instead, the architecture specifies a bespoke, five-stage GSAP timeline titled "The Arterial Silk & Monolith Dock"18.
+The DOM structure of the preloader (#caesar-preloader) consists of a fixed fullscreen container (fixed inset-0 z-[9999] pointer-events-auto overflow-hidden flex flex-col justify-between p-6 md:p-12) layered over six coordinated sub-elements23. Two vertical split shutters—.preloader-shutter-top (fixed top-0 left-0 w-full h-[50vh] bg-caesar-black z-10) and .preloader-shutter-bottom (fixed bottom-0 left-0 w-full h-[50vh] bg-caesar-black z-10)—meet at the center of the screen18. Directly behind those black shutters sits the Burgundy Silk Underlay Curtain (.preloader-burgundy-veil, fixed inset-0 bg-caesar-burgundy z-[5]), positioned so that as the black shutters part vertically, a trailing ribbon of deep #6D001A silk sweeps across the viewport before revealing the page18. Along the exact vertical midpoint sits the Center Horizon Laser Filament (.preloader-filament, fixed top-1/2 left-0 w-full h-[1px] bg-caesar-burgundy z-20 scale-x-0 origin-left shadow-[0_0_20px_#8F0022]). In the upper corners, top-left telemetry (PROJECT: CAESAR // ARCHIVE 01) and top-right telemetry (HEX 6D001A — OBSIDIAN & SILK) are rendered in font-mono text-[11px] tracking-[0.25em] text-caesar-ash uppercase z-30. At the dead center of the viewport, #preloader-logo-wrap (z-30 flex flex-col items-center justify-center) holds the primary brand wordmark VELORA split into six individual character spans (<span class="char inline-block translate-y-[110%]">V</span>...) inside an overflow-hidden mask, accompanied by the sub-label CAESAR EDITION (font-mono text-[10px] tracking-[0.4em] text-caesar-burgundy-light mt-2 opacity-0)10. Finally, anchored in the bottom-right corner, #preloader-counter (z-30 font-mono text-5xl md:text-7xl font-bold text-caesar-white tracking-tighter) displays a three-digit zero-padded integer progressing from 000 to 100 alongside a superscript % rendered in #6D001A18.
+
+
+Phase & Timestamp
+	Target Elements
+	Exact GSAP Property Tween & Easing
+	Visual & Sensory Effect
+	Phase 1: Ignition (0.0s – 0.4s)
+	.preloader-telemetry, #preloader-counter
+	opacity: 0 -> 1, y: 12 -> 0, ease: "power3.out"
+	Telemetry coordinates (PROJECT: CAESAR) and the 000% counter snap into focus over pitch black #00000022.
+	Phase 2: Arterial Laser & Real Image Load (0.2s – 1.5s)
+	.preloader-filament, #preloader-counter
+	Counter tweens innerText from 0 to 100 synced with real image loading promises; .preloader-filament tweens scaleX: 0 -> 1, ease: "expo.inOut"18.
+	As the counter climbs (000 -> 100), a razor-thin #6D001A burgundy laser line slices horizontally across the exact center of the viewport18.
+	Phase 3: Monolith Character Rise (0.6s – 1.4s)
+	#preloader-logo-wrap .char, .sub-label
+	yPercent: 110 -> 0, stagger: 0.045, duration: 0.75, ease: "cubic-bezier(0.16, 1, 0.3, 1)". Sub-label fades in with letterSpacing: "0.6em" -> "0.4em"10.
+	The six letters of VELORA rise out of the central burgundy horizon line in crisp #FFFFFF while CAESAR EDITION locks beneath it10.
+	Phase 4: Arterial Pulse & Dock Transfer (1.5s – 2.1s)
+	#preloader-logo-wrap, .preloader-filament
+	.preloader-filament flashes #FFFFFF then collapses (height: 0, opacity: 0). Using GSAP Flip, VELORA smoothly scales down and translates from 50vh center to the exact coordinates of .header-logo-target at the top of the viewport24.
+	Rather than disappearing and re-appearing, the preloader wordmark physically flies upward and locks into the sticky navigation bar as the permanent site logo24.
+	Phase 5: Dual Shutter Silk Parting (1.7s – 2.5s)
+	.preloader-shutter-top, .preloader-shutter-bottom, .preloader-burgundy-veil, .hero-reveal-item
+	Shutters animate yPercent: -100 (top) and yPercent: 100 (bottom) with ease: "expo.inOut". .preloader-burgundy-veil follows 0.12s behind via clipPath: "inset(50% 0 50% 0)". Hero elements trigger y: 40 -> 0 stagger10.
+	The black shutters split vertically from the center horizon, revealing a trailing ribbon of #6D001A burgundy before unveiling the live WebGL Hero canvas10. sessionStorage.setItem('velora_loaded', 'true') prevents full replay on internal navigation.
+	3.2 Ambient 3D Background: WebGL Liquid Burgundy Silk & Orbital Halo Shader
+Integrating a 3D background significantly elevates luxury brand perception when implemented as an atmospheric, GPU-accelerated procedural fragment shader rather than heavy 3D polygon shoe meshes that degrade mobile page speed2. Directly inspired by the center-bottom panel of Reference Image 2 (the undulating #6D001A Burgundy liquid satin fabric) and the glowing orbital ring in Reference Image 3 (Urban Motion Series), the architecture incorporates a Three.js / Custom GLSL Fragment Shader Plane ("The Caesar Arterial Silk Canvas") in two targeted zones10.
+The first zone is the Homepage Hero Background (#hero-webgl-canvas), where a fullscreen z-0 background plane sits behind the hero typography and floating footwear-and-hoodie showcase, computing procedural wave interference and domain warping to simulate heavy obsidian-and-burgundy silk rippling slowly in dark space10. The second zone is the Mid-Page Spotlight Banner (#spotlight-webgl-canvas) inside the Urban Motion Series promotional section (Reference Image 3), where the shader renders an interactive #6D001A to #A80029 glowing orbital eclipse ring and drifting micro-ember particles behind the floating sneaker silhouette10.
+Both canvases use a single THREE.PlaneGeometry(2, 2) filling an OrthographicCamera(-1, 1, 1, -1, 0, 1), requiring only two triangles and zero external 3D model downloads10. The fragment shader is driven by five uniforms: uTime (float, incremented by 0.012 per frame for an unhurried, organic drift), uMouse (vec2, normalized pointer coordinates from 0.0 to 1.0 smoothed via gsap.quickTo() with a 0.8s lag so moving the cursor gently parts the silk folds and shifts the specular highlight), uColorObsidian (vec3(0.0, 0.0, 0.0) for #000000), uColorBurgundy (vec3(0.427, 0.0, 0.102) for #6D001A), and uColorPeak (vec3(0.62, 0.0, 0.15) for #9E0027 specular silk crests)10. To guarantee a 60fps scroll experience and preserve battery life, an IntersectionObserver pauses the requestAnimationFrame loop the instant either canvas leaves the viewport, and window.matchMedia('(prefers-reduced-motion: reduce)') freezes uTime on a still sculptural frame for users who prefer reduced motion10.
+3.3 The Strict Non-3D Hover Mandate & 2D Luxury Micro-Interaction System
+In strict adherence to the architectural constraint forbidding all 3D hover animations, the stylesheet and GSAP scripts explicitly prohibit transform-style: preserve-3d, perspective(), rotateX(), and rotateY() across all cards, buttons, and gallery frames10. Three-dimensional card tilting distorts garment proportions during evaluation and detracts from an editorial presentation2. Every interactive surface instead relies on 2D Editorial Luxury Micro-Interactions engineered with GSAP and hardware-accelerated 2D CSS transforms3.
+
+
+Component Target
+	Prohibited 3D Behavior
+	Mandated 2D Luxury Micro-Interaction (GSAP / CSS)
+	Product Cards (Top Picks, Shop, You May Also Like)
+	No 3D card tilt (rotateX/Y), no z-axis pop-out10.
+	Dual-Layer Studio Crossfade + Inner Scale: Hovering a product card triggers a 0.55s cubic-bezier(0.16, 1, 0.3, 1) opacity crossfade from the studio front angle (img-primary) to the on-body/side angle (img-secondary) while scaling the image 1.00 -> 1.04 strictly inside its overflow-hidden frame10. Simultaneously, the card border transitions from #222226 to #6D001A.
+	Category Cards (Featured Collections)
+	No 3D flip or perspective swing10.
+	Arterial Horizon Sweep & Icon Shift: Hovering illuminates a radial #6D001A 20% gradient at the base of the card, shifts the EXPLORE → arrow 6px right (translate-x-1.5), and animates a 2px bottom border bar from scaleX(0) to scaleX(1) (origin-left).
+	Primary CTA Buttons (Add to Cart, Discover Now)
+	No 3D cube flip or perspective press.
+	2D Liquid Curtain Fill + Text Mask Swap: Buttons feature an overflow-hidden wrapper. On hover, a background layer (#8F0022 or #FFFFFF) wipes upward from translateY(101%) to translateY(0%) as the button label slides up 100% and an identical clone slides in from below (0.35s ease: "power3.out")10.
+	Quick-Add Square Cart Button (🛒 on Cards)
+	No 3D bounce or rotation.
+	Burgundy Fill & Checkmark Morph: Hovering fills the 40px × 40px square button with #6D001A and changes the cart SVG stroke to #FFFFFF. Clicking triggers a 2D SVG path draw into a crisp checkmark and increments the header bag counter3.
+	Navigation & Editorial Links
+	No 3D text extrusion.
+	Directional Hairline Underline: Links feature a 1px #6D001A pseudo-element (::after) that scales from scaleX(0) (origin-right) to scaleX(1) (origin-left) on hover.
+	4. Complete Product Catalog & Merchandising Data Architecture
+4.1 Category Taxonomy & Merchandising Logic
+To unify Reference Image 1 (VELORA heavyweight fleece apparel) and Reference Image 3 (ELITE SOLE technical and lifestyle footwear) into a single coherent brand ecosystem, the store catalog is organized into two overarching divisions—Footwear (Sole Architecture) and Apparel (Heavyweight Fleece & Knitwear)—spanning five filterable collections (Running, Lifestyle, Sneakers, Training, and Heavyweight Apparel & Outdoor)5.
+Every product object in the JavaScript store (window.VELORA_CATALOG) contains the complete data structure required to populate both the Homepage cards and the dynamic Product Detail Page (PDP): SKU ID, URL slug, product title, division, category, USD price, PKR price (honoring the exact figures from Reference Image 3), compare-at price, discount badge, star rating, review count, color swatches (name, hex code, and angle image array), available sizes, opening hook sentence, full technical description, fabric/material GSM specifications, model sizing telemetry, and care instructions6.
+4.2 Full 16-Product Master Catalog (Apparel & Footwear)
+The table below documents all 16 products hardcoded into the frontend JavaScript catalog (js/catalog.js) so that clicking any product card on the Homepage, Shop page, or You May Also Like carousel dynamically loads its complete Product Detail Page6.
+
+
+ID / SKU
+	Product Name
+	Division / Category
+	Price (USD / PKR)
+	Compare Price & Badge
+	Rating & Reviews
+	Colorways (Name: Hex)
+	Sizes Available
+	Material / GSM & Core Technical Specification
+	VEL-001 (Flagship PDP)
+	Essential Oversized Hoodie
+	Apparel / Heavyweight
+	$59.99 (PKR 16,500)
+	$89.99 (33% OFF + New Arrival)
+	4.8 ★ (128)
+	Charcoal Gray (#36383C), Heather Ash (#B8B9BE), Sand Cream (#E8DFD5), Pitch Black (#000000), Caesar Burgundy (#6D001A)
+	S, M, L, XL, XXL
+	480 GSM 100% combed ring-spun cotton loopback fleece; drop-shoulder boxy silhouette; double-lined hood; tonal ESSENTIALS COLLECTION chest print6.
+	VEL-002 (PDP Cross-Sell 1)
+	Minimal Hoodie
+	Apparel / Heavyweight
+	$54.99 (PKR 15,200)
+	$74.99 (27% OFF)
+	4.7 ★ (94)
+	Sand Cream (#E5DDD3), Pitch Black (#000000), Burgundy (#6D001A)
+	S, M, L, XL, XXL
+	440 GSM brushed organic cotton fleece; zero-branding minimalist chest; concealed kangaroo welt pockets; ribbed cuffs and waistband6.
+	VEL-003 (PDP Cross-Sell 2)
+	Classic Sweatshirt
+	Apparel / Heavyweight
+	$49.99 (PKR 13,800)
+	— (Best Seller)
+	4.9 ★ (112)
+	Pitch Black (#000000), Charcoal Gray (#36383C), Pure White (#FFFFFF)
+	S, M, L, XL, XXL
+	420 GSM heavyweight French terry crewneck; tight-ribbed mock collar; relaxed architectural drape; pre-shrunk enzyme wash6.
+	VEL-004 (PDP Cross-Sell 3)
+	Zip Up Hoodie
+	Apparel / Heavyweight
+	$64.99 (PKR 17,900)
+	$84.99 (24% OFF)
+	4.8 ★ (86)
+	Bone Cream (#EAE3DC), Pitch Black (#000000), Burgundy (#6D001A)
+	S, M, L, XL, XXL
+	480 GSM heavyweight cotton; two-way matte obsidian YKK metal zipper; split kangaroo pockets; structured two-panel hood9.
+	VEL-005 (PDP Cross-Sell 4)
+	Essential Hoodie — Obsidian
+	Apparel / Heavyweight
+	$59.99 (PKR 16,500)
+	— (Core Staple)
+	4.9 ★ (164)
+	Pitch Black (#000000), Burgundy (#6D001A), Charcoal (#36383C)
+	S, M, L, XL, XXL
+	480 GSM carbon-peached cotton fleece; high-density micro-serif chest print; reinforced double-needle coverstitch seams6.
+	VEL-006 (Home Card 1)
+	Elite Runner Pro
+	Footwear / Running
+	$145.00 (PKR 12,450)
+	$180.00 (19% OFF + Best Seller)
+	4.9 ★ (128)
+	Obsidian/Burgundy (#000000/#6D001A), Obsidian/Gold (#000000/#D4AF37), Pure White (#FFFFFF)
+	US 7, 8, 9, 10, 11, 12, 13
+	Dual-density nitrogen-infused EVA midsole; engineered ballistic mesh upper with #6D001A TPU heel stabilizer; carbon-rubber traction outsole9.
+	VEL-007 (Home Card 2)
+	Urban Shift
+	Footwear / Lifestyle
+	$125.00 (PKR 10,990)
+	— (Top Pick)
+	4.8 ★ (96)
+	Pure White (#FFFFFF), Pitch Black (#000000), Burgundy Suede (#6D001A)
+	US 7, 8, 9, 10, 11, 12
+	Full-grain Italian calfskin leather upper; perforated toe box; 38mm sculpted platform cupsole; memory-foam calfskin footbed9.
+	VEL-008 (Home Card 3)
+	Apex Street
+	Footwear / Sneakers
+	$138.00 (PKR 11,750)
+	$165.00 (16% OFF)
+	4.8 ★ (76)
+	Burgundy/Obsidian (#6D001A/#000000), White/Burgundy (#FFFFFF/#6D001A), Triple Black (#000000)
+	US 7, 8, 9, 10, 11, 12, 13
+	High-top architectural court silhouette; tumbled leather overlays in #6D001A Burgundy; padded ballistic nylon collar; air-wedge sole unit9.
+	VEL-009 (Home Card 4)
+	Comfort Walk
+	Footwear / Outdoor
+	$115.00 (PKR 9,450)
+	— (Core Staple)
+	4.7 ★ (54)
+	Sand Nubuck (#C8B59B), Obsidian (#000000), Dark Oxide (#6D001A)
+	US 7, 8, 9, 10, 11, 12
+	Water-repellent oiled nubuck upper; gusseted tongue; Vibram-inspired multi-directional lug sole; Ortholite anatomical arch support9.
+	VEL-010 (Banner Hero)
+	Urban Motion Series X1
+	Footwear / Training
+	$160.00 (PKR 14,500)
+	$195.00 (New Arrival)
+	5.0 ★ (62)
+	Obsidian/Crimson (#000000/#6D001A), Obsidian/Bronze (#000000/#B8860B)
+	US 7, 8, 9, 10, 11, 12, 13
+	Flagship sculpted motion runner from the mid-page spotlight banner; 3D-molded heel cage; responsive propulsion plate; reflective piping9.
+	VEL-011
+	Caesar Satin Bomber Jacket
+	Apparel / Outerwear
+	$189.00 (PKR 24,900)
+	$240.00 (21% OFF + Limited)
+	4.9 ★ (41)
+	Caesar Burgundy (#6D001A), Pitch Black (#000000)
+	S, M, L, XL
+	Heavyweight Japanese liquid-sheen satin twill shell (inspired directly by Image 2 Burgundy silk); 200 GSM quilted insulation; matte black hardware9.
+	VEL-012
+	Architectural Cargo Pant
+	Apparel / Bottoms
+	$98.00 (PKR 12,900)
+	— (New Arrival)
+	4.8 ★ (73)
+	Pitch Black (#000000), Charcoal (#36383C)
+	28, 30, 32, 34, 36
+	340 GSM ripstop cotton-nylon blend; articulated knee pleats; 6 expandable gusseted pockets; adjustable ankle snap tabs9.
+	VEL-013
+	Heavyweight Boxy Tee — Caesar
+	Apparel / Tops
+	$38.00 (PKR 6,500)
+	$48.00 (20% OFF)
+	4.9 ★ (215)
+	Pure White (#FFFFFF), Pitch Black (#000000), Burgundy (#6D001A)
+	S, M, L, XL, XXL
+	310 GSM carded open-end cotton jersey; high-ribbed 2.8cm collar; dropped shoulders; vintage pigment wash6.
+	VEL-014
+	Vanguard Tech Trainer
+	Footwear / Training
+	$132.00 (PKR 11,500)
+	— (Core Staple)
+	4.7 ★ (49)
+	Triple Black (#000000), Ash/Burgundy (#A1A1AA/#6D001A)
+	US 8, 9, 10, 11, 12
+	Zero-drop cross-training chassis; Kevlar-reinforced lateral wrap for studio stability; breathable knit bootie construction9.
+	VEL-015
+	Alpine Trail Monolith Boot
+	Footwear / Outdoor
+	$175.00 (PKR 16,900)
+	$210.00 (17% OFF)
+	4.9 ★ (38)
+	Obsidian/Tan (#000000/#8B5A2B), Obsidian/Burgundy (#000000/#6D001A)
+	US 8, 9, 10, 11, 12, 13
+	Weatherproof ballistic cordura and suede upper; speed-lace metal D-ring hooks; thermal neoprene inner sock liner9.
+	VEL-016
+	Wide-Leg Heavy Fleece Sweatpant
+	Apparel / Bottoms
+	$54.99 (PKR 14,500)
+	$69.99 (21% OFF)
+	4.8 ★ (109)
+	Charcoal Gray (#36383C), Pitch Black (#000000), Sand Cream (#E8DFD5)
+	S, M, L, XL, XXL
+	480 GSM cotton loopback fleece matching the Essential Oversized Hoodie; uncuffed open-hem drape; interior drawcord6.
+	5. Step-by-Step Homepage Specification (View 01 — Dark Luxury Flagship)
+The Homepage (index.html) follows the exact vertical storytelling progression of Reference Image 3 (ELITE SOLE), upgraded with the top utility and navigation bar of Reference Image 1 (VELORA) and bathed in the #000000 / #6D001A / #FFFFFF palette of Reference Image 2 (Project: CAESAR)1.
+5.1 Section 01: Top Utility & Announcement Bar
+Extracted directly from the top bar of Reference Image 1 (VELORA), the announcement bar spans the full viewport width at a fixed height of 38px (h-[38px]) with a pitch-black #000000 background (bg-caesar-black) and a 1px solid #222226 bottom structural hairline (border-b border-caesar-border). Inside the max-w-[1440px] mx-auto px-4 md:px-12 flex items-center justify-between text-xs wrapper, the left column (visible on desktop viewports) displays a live status indicator consisting of a pulsing 6px #6D001A dot alongside <span class="font-mono text-[11px] tracking-[0.18em] text-caesar-ash uppercase">ARCHIVE 01: PROJECT CAESAR LIVE</span>. The center column reproduces the exact shipping trust cue from Reference Image 1: a 16px × 16px delivery truck SVG icon stroked in #FFFFFF paired with <p class="font-sans text-[12px] font-medium text-caesar-white tracking-wide">Free Shipping on orders over <span class="text-caesar-burgundy-light font-mono font-bold">$99</span></p>2. The right column houses the interactive currency selector button (<button id="currency-switcher" class="font-mono text-[11px] text-caesar-white flex items-center gap-1 hover:text-caesar-burgundy-light transition-colors">USD $ ▾</button>), which toggles a compact dropdown allowing instant conversion across the entire site between USD $ (matching Reference Image 1), PKR ₨ (matching Reference Image 3), EUR €, and GBP £.
+5.2 Section 02: Sticky Glassmorphic Navigation Header
+Directly below the announcement bar sits the sticky navigation header (sticky top-0 z-50 h-20 w-full bg-caesar-black/85 backdrop-blur-md border-b border-caesar-border transition-all duration-300), which compacts its vertical height from 80px (h-20) to 64px (h-16) via JavaScript once window.scrollY exceeds 80px17. Following the exact horizontal geometry of Reference Image 1, the left zone pairs the hamburger drawer button (#menu-drawer-btn, containing three 18px horizontal bars where the center bar shifts 4px right in #6D001A on hover) with the brand wordmark <a href="index.html" class="header-logo-target font-display text-2xl md:text-[28px] font-bold tracking-[0.18em] text-caesar-white">VELORA</a>24.
+The center zone (<nav class="hidden lg:flex items-center gap-8">) renders the six verbatim navigation links from Reference Image 1 in font-sans text-[13px] font-semibold tracking-[0.12em] uppercase: HOME (href="index.html", active state in #FFFFFF with a 1px #6D001A underline), SHOP ▾ (href="shop.html", which opens a two-column mega-menu on hover contrasting Heavyweight Apparel and Sole Architecture), NEW ARRIVALS (href="shop.html?filter=new"), COLLECTIONS (href="collections.html"), SALE (href="sale.html", styled in #8F0022 crimson-burgundy with a 33% superscript tag), and BLOG (href="blog.html"). The right utility zone (flex items-center gap-5 text-caesar-white) houses four interactive icon triggers: a 20px magnifier SVG (#search-trigger), a 20px user profile silhouette SVG (#account-trigger), a 20px heart wishlist SVG (#wishlist-trigger), and a 20px shopping bag SVG (#cart-drawer-trigger) crowned by a circular #6D001A burgundy badge displaying <span id="cart-count" class="font-mono text-[10px] font-bold text-caesar-white">2</span> (reproducing the exact 2 badge from Reference Image 1).
+5.3 Section 03: Hero Section ("The Caesar Drop — Architectural Streetwear")
+The Hero section (<section id="hero-section" class="relative min-h-[88vh] w-full overflow-hidden bg-caesar-black flex items-center">) bridges the preloader exit with the dark-luxury world of VELORA // CAESAR, showcasing both the flagship apparel (Essential Oversized Hoodie) and flagship footwear (Elite Runner Pro) over the live WebGL liquid burgundy silk background1. Mounted at z-0 is <canvas id="hero-webgl-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>, overlaid at z-[1] with a radial vignette (bg-[radial-gradient(circle_at_65%_50%,rgba(109,0,26,0.28)_0%,rgba(0,0,0,0.92)_75%)]) to guarantee high-contrast text legibility1.
+Inside the 12-column foreground grid (relative z-10 max-w-[1440px] mx-auto px-4 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16), the left seven columns (lg:col-span-7) present the editorial narrative. At the top sits an eyebrow pill (inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-caesar-burgundy/20 border border-caesar-burgundy mb-6) featuring a #6D001A diamond icon and the text PROJECT: CAESAR — SEASON 01 DROP. Beneath the eyebrow, the primary H1 headline reads OBSIDIAN FORM. ARTERIAL PRECISION. set in font-heading text-4xl sm:text-6xl xl:text-[72px] font-extrabold text-caesar-white uppercase leading-[1.02] tracking-tight mb-6, with ARTERIAL PRECISION. shaded via a subtle white-to-burgundy linear text gradient. The accompanying body paragraph (font-sans text-base md:text-lg text-caesar-ash max-w-xl leading-relaxed mb-8) states: "Engineered at the intersection of 480 GSM heavyweight cotton fleece and nitrogen-infused footwear architecture. Dressed in pure obsidian black, deep burgundy silk, and stark editorial white."1.
+Directly below the copy sits a dual CTA row: the primary button (EXPLORE THE DROP →) is styled in bg-caesar-burgundy text-caesar-white px-8 py-4 rounded-lg font-sans text-xs font-semibold uppercase tracking-[0.15em] shadow-burgundy-glow linking to product.html?id=VEL-001, while the secondary outline button (SHOP ALL ARCHIVES) uses border border-caesar-border bg-caesar-card/60 text-caesar-white px-8 py-4 rounded-lg linking to shop.html. Anchoring the bottom of the left column is a three-metric telemetry bar (pt-10 border-t border-caesar-border/60 grid grid-cols-3 gap-6 max-w-lg) displaying 480 GSM / Heavyweight Fleece, 4.9 ★ / 1,420+ Verified Reviews, and 24H / Express Global Dispatch16. The right five columns (lg:col-span-5) present a layered editorial showcase framed by a #6D001A glowing circular ring (w-[420px] h-[420px] rounded-full border border-caesar-burgundy/40 shadow-burgundy-glow), pairing the studio portrait of the Essential Oversized Hoodie (VEL-001) with a floating glass card in the lower-left corner displaying the Elite Runner Pro (VEL-006). Upon preloader completion, each line of the H1 rises from a clip-path: inset(0 0 100% 0) mask (duration: 0.9, stagger: 0.12, ease: "power4.out"), and scrolling down triggers a ScrollTrigger (scrub: 1.2) that parallaxes the right-hand showcase upward (yPercent: -12) while fading the WebGL canvas opacity from 1.0 to 0.310.
+5.4 Section 04: Featured Collections Category Carousel
+Directly mirroring the top section of Reference Image 3 (— SHOP BY CATEGORY / FEATURED COLLECTIONS), Section 04 uses a pitch-black #000000 background (bg-caesar-black py-20 border-t border-caesar-border). The section header row (flex items-end justify-between mb-10) places the eyebrow — SHOP BY CATEGORY (with a 24px × 2px #6D001A bar) and the H2 heading FEATURED COLLECTIONS (font-heading text-2xl md:text-4xl font-bold text-caesar-white uppercase tracking-wide) on the left, while the right side houses two circular 44px × 44px slider navigation buttons (#cat-prev in border-caesar-border bg-caesar-card text-caesar-ash containing ←, and #cat-next in border-caesar-burgundy bg-caesar-burgundy/15 text-caesar-white hover:bg-caesar-burgundy containing →, matching the highlighted right arrow in Reference Image 3).
+Below the header sits a five-column category grid (grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5). Each card (group bg-caesar-card border border-caesar-border rounded-xl p-4 flex flex-col justify-between transition-colors duration-300 hover:border-caesar-burgundy relative overflow-hidden) features a 200px dark studio frame (bg-[#0B0B0E] rounded-lg p-4 overflow-hidden) above a bottom metadata row containing a #6D001A vector line icon on the left and the uppercase category H3 title stacked over EXPLORE → (text-caesar-burgundy-light font-mono text-[11px]) on the right. Cards enter on scroll via ScrollTrigger (start: "top 82%", y: 35 -> 0, opacity: 0 -> 1, stagger: 0.08, duration: 0.7, ease: "power3.out"), and hovering scales the inner silhouette 1.0 -> 1.05 strictly in 2D while sweeping a 2px #6D001A bottom line from left to right10.
+Card Order
+	Category Title (H3)
+	Sub-Link Text
+	Line Icon SVG
+	Featured Silhouette Inside Frame
+	Filter Target
+	Card 01
+	RUNNING
+	EXPLORE →
+	Dynamic sprinter / winged sole icon in #6D001A
+	Elite Runner Pro (VEL-006) in Obsidian & Burgundy
+	shop.html?cat=running
+	Card 02
+	LIFESTYLE
+	EXPLORE →
+	Minimal low-top court icon in #6D001A
+	Urban Shift (VEL-007) in Pure White (#FFFFFF)
+	shop.html?cat=lifestyle
+	Card 03
+	SNEAKERS
+	EXPLORE →
+	High-top collar silhouette icon in #6D001A
+	Apex Street (VEL-008) in Burgundy, White & Black
+	shop.html?cat=sneakers
+	Card 04
+	TRAINING
+	EXPLORE →
+	Kinetic pulse / dumbbell crest icon in #6D001A
+	Vanguard Tech Trainer (VEL-014) in Triple Black
+	shop.html?cat=training
+	Card 05
+	OUTDOOR & FLEECE
+	EXPLORE →
+	Mountain shield & heavyweight hoodie icon in #6D001A
+	Comfort Walk (VEL-009) + Essential Oversized Hoodie (VEL-001)
+	shop.html?cat=outdoor
+	5.5 Section 05: Best Sellers Product Grid ("Top Picks For You")
+Section 05 reproduces the second section of Reference Image 3 (— BEST SELLER / TOP PICKS FOR YOU with VIEW ALL PRODUCTS → and the four-column product grid) on an elevated #0A0A0C surface (bg-caesar-surface py-24 border-t border-caesar-border). The header row aligns the eyebrow — BEST SELLER and H2 heading TOP PICKS FOR YOU on the left, an interactive category filter pill group (ALL TOP PICKS, FOOTWEAR, HEAVYWEIGHT FLEECE) in the center, and the <a href="shop.html" class="font-mono text-xs text-caesar-burgundy-light tracking-[0.15em] uppercase hover:text-caesar-white">VIEW ALL PRODUCTS →</a> link on the right.
+The four-column grid (grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6) renders cards adhering to the exact anatomy of Reference Image 3. Each card (bg-caesar-card border border-caesar-border rounded-xl p-5 flex flex-col justify-between hover:border-caesar-burgundy transition-colors duration-300) places a wishlist heart toggle (♡) in the top-right corner above a 240px dark studio viewport (bg-[#0D0D10] rounded-lg mb-5 overflow-hidden relative) that executes a 2D opacity crossfade between primary and secondary product angles on hover10. Beneath the image sit the H3 product title (font-sans text-base font-semibold text-caesar-white mb-1.5) and a five-star rating row (★★★★★ paired with the parenthetical review count in font-mono text-xs text-caesar-ash). The card footer (flex items-end justify-between mt-3 pt-3 border-t border-caesar-border/60) stacks the price (font-mono text-lg font-bold text-caesar-white, dynamically switching between USD and the verbatim PKR price from Reference Image 3) above three interactive 10px circular color swatch dots on the left, paired with a 40px × 40px square bordered quick-cart button (🛒) on the right. Clicking the quick-cart button morphs the icon into a checkmark and slides open the Mini-Cart Drawer.
+Slot
+	Product Title (H3)
+	Rating & Reviews
+	Default Price (USD / PKR Switch)
+	3 Color Swatch Dots (Hex)
+	Quick-Add Target SKU
+	Card 1
+	Elite Runner Pro
+	★★★★★ (128)
+	$145.00 (PKR 12,450)
+	#000000, #6D001A, #FFFFFF
+	VEL-006
+	Card 2
+	Urban Shift
+	★★★★★ (96)
+	$125.00 (PKR 10,990)
+	#FFFFFF, #000000, #6D001A
+	VEL-007
+	Card 3
+	Apex Street
+	★★★★★ (76)
+	$138.00 (PKR 11,750)
+	#6D001A, #000000, #FFFFFF
+	VEL-008
+	Card 4
+	Comfort Walk
+	★★★★★ (54)
+	$115.00 (PKR 9,450)
+	#C8B59B, #000000, #6D001A
+	VEL-009
+	Card 5 (Fleece Row 1)
+	Essential Oversized Hoodie
+	★★★★★ (128)
+	$59.99 (PKR 16,500)
+	#36383C, #000000, #6D001A
+	VEL-001
+	Card 6 (Fleece Row 2)
+	Minimal Hoodie
+	★★★★★ (94)
+	$54.99 (PKR 15,200)
+	#E5DDD3, #000000, #6D001A
+	VEL-002
+	Card 7 (Fleece Row 3)
+	Classic Sweatshirt
+	★★★★★ (112)
+	$49.99 (PKR 13,800)
+	#000000, #36383C, #FFFFFF
+	VEL-003
+	Card 8 (Fleece Row 4)
+	Zip Up Hoodie
+	★★★★★ (86)
+	$64.99 (PKR 17,900)
+	#EAE3DC, #000000, #6D001A
+	VEL-004
+	5.6 Section 06: Interactive Spotlight Banner ("Urban Motion Series")
+Section 06 reconstructs the full-width dramatic mid-page banner from Reference Image 3 (— NEW ARRIVAL / URBAN MOTION SERIES). Housed inside <section class="relative overflow-hidden bg-caesar-black py-24 border-y border-caesar-border">, this section mounts the second ambient WebGL shader canvas (#spotlight-webgl-canvas) on the right half of the viewport, transforming the gold halo of Reference Image 3 into a luminous #6D001A Burgundy orbital eclipse ring (460px diameter) surrounded by slow-drifting crimson ember particles10.
+Within the 12-column container, the left five columns (lg:col-span-5) render the verbatim eyebrow — NEW ARRIVAL (font-mono text-xs tracking-[0.2em] text-caesar-burgundy-light uppercase mb-3), the H2 headline URBAN MOTION SERIES (font-heading text-4xl md:text-5xl font-extrabold text-caesar-white uppercase leading-[1.08] mb-4), and the verbatim two-line body copy: "Designed for the modern lifestyle. Where comfort meets style." Beneath the copy sits the solid #6D001A Burgundy CTA button (DISCOVER NOW →, bg-caesar-burgundy hover:bg-caesar-burgundy-light text-caesar-white font-sans text-xs font-bold uppercase tracking-[0.16em] px-7 py-4 rounded-lg shadow-burgundy-glow) linking to product.html?id=VEL-010. The right seven columns (lg:col-span-7) suspend the sculpted Urban Motion Series X1 sneaker angled at -18deg across the glowing #6D001A orbital ring, enhanced with three interactive + hotspot nodes (w-7 h-7 rounded-full bg-caesar-burgundy border border-caesar-white text-caesar-white font-mono text-xs) anchored at the 3D-Molded Heel Cage, Nitrogen Midsole Core, and Ballistic Mesh Upper20. Clicking or hovering a hotspot opens a glassmorphic callout card detailing the component specification, while a ScrollTrigger (scrub: 1) rotates the background orbital ring by 45deg and translates the shoe silhouette vertically by -24px during scroll10.
+5.7 Section 07: Heavyweight Apparel Capsule Split ("The Essential Fleece Edit")
+To bridge the dark homepage directly with the flagship Essential Oversized Hoodie (VEL-001) from Reference Image 1 and the liquid burgundy silk materiality from Reference Image 2, Section 07 presents an asymmetric two-column editorial split on #000000 (bg-caesar-black py-24)6. The left six columns (lg:col-span-6) frame a 520px-tall rounded macro visual (rounded-2xl overflow-hidden border border-caesar-border relative) showcasing the diagonal close-up of the heavyweight cotton fleece embossed with ESSENTIALS COLLECTION from Reference Image 1, bordered by a liquid #6D001A Burgundy satin fold from Reference Image 28.
+The right six columns (lg:col-span-6 lg:pl-12) render the eyebrow — CAPSULE 01 // 480 GSM FLEECE, the H2 heading THE ESSENTIAL OVERSIZED ARCHITECTURE, and the narrative paragraph: "Crafted from 480 GSM combed ring-spun cotton loopback fleece, the Essential Oversized Hoodie delivers unmatched structural drape, thermal density, and enduring softness. Cut with dropped shoulders and a double-lined hood for an uncompromising silhouette."6. Directly beneath the paragraph sits an embedded quick-buy specification card displaying Essential Oversized Hoodie — 89.99 / 33% OFF) and a direct INSPECT FULL PRODUCT PAGE → CTA linking to product.html?id=VEL-001.
+5.8 Section 08: Architectural Trust & Value Proposition Strip
+Section 08 mirrors the four-column horizontal value-proposition strip beneath the spotlight banner in Reference Image 3, synthesized with the three-pillar trust row in Reference Image 12. Rendered on #0A0A0C (bg-caesar-surface py-12 border-y border-caesar-border), the section divides a 12-column container into four equal horizontal blocks (grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x divide-caesar-border).
+
+
+Pillar #
+	Icon Graphic (40px SVG in #6D001A / #FFFFFF)
+	Title (H3 — font-sans text-sm font-bold text-caesar-white uppercase tracking-wider)
+	Verbatim & Synthesized Description Copy (font-sans text-xs text-caesar-ash mt-1 leading-relaxed)
+	Pillar 01
+	Precision sneaker & textile weave crest icon
+	PREMIUM QUALITY
+	Finest 480 GSM fabrics & full-grain materials for long lasting use.16
+	Pillar 02
+	Circular shield with return arrow icon
+	EASY RETURNS
+	Hassle free returns within 30 days (7-day instant local courier swap).2
+	Pillar 03
+	Express delivery truck icon
+	FREE SHIPPING
+	Free delivery on all orders over $99 (or above PKR 5,000).2
+	Pillar 04
+	Encrypted padlock shield icon
+	SECURE PAYMENT
+	100% secure payment guarantee with encrypted checkout.2
+	5.9 Section 09: Verified Client Testimonials ("Real Reviews, Real Trust")
+Section 09 reconstructs the customer testimonial section from Reference Image 3 (WHAT OUR CUSTOMERS SAY / REAL REVIEWS, REAL TRUST with three dark review cards and pagination dots) on a #000000 background (bg-caesar-black py-24). Above the grid, the eyebrow WHAT OUR CUSTOMERS SAY (font-mono text-[11px] tracking-[0.2em] text-caesar-ash uppercase block mb-2) introduces the H2 heading REAL REVIEWS, REAL TRUST (font-heading text-2xl md:text-4xl font-bold text-caesar-white uppercase mb-12).
+The three-column testimonial grid (grid grid-cols-1 md:grid-cols-3 gap-6) styles each card in bg-caesar-card border border-caesar-border rounded-xl p-7 hover:border-caesar-burgundy transition-colors. Each card opens with a buyer identity row (flex items-center gap-4 mb-5) pairing a 48px × 48px circular high-contrast portrait avatar ringed in #6D001A with the customer's name (font-sans text-sm font-bold text-caesar-white) stacked over five stars (★★★★★ in #6D001A or #F59E0B), followed by the verbatim review quote in font-sans text-sm text-caesar-ash leading-relaxed italic. Centered below the grid is the interactive four-dot pagination control (flex items-center justify-center gap-2 mt-8), featuring an elongated active #6D001A pill (w-6 h-2 rounded-full bg-caesar-burgundy) and three inactive dots (w-2 h-2 rounded-full bg-caesar-border) that cycle through verified footwear and hoodie reviews via a 2D horizontal GSAP crossfade10.
+Card #
+	Buyer Name (Verbatim from Image 3)
+	Rating
+	Verbatim Review Copy & Hybrid Context
+	Verified Purchase Tag
+	Review 01
+	Usman Khan
+	★★★★★
+	"Amazing quality and ultra comfort. VELORA Caesar Edition is my new favorite!"
+	Verified Buyer — Elite Runner Pro
+	Review 02
+	Sana Malik
+	★★★★★
+	"Love the design and the comfort. Highly recommended!"
+	Verified Buyer — Essential Oversized Hoodie
+	Review 03
+	Bilal Ahmed
+	★★★★★
+	"Best shoes I've ever bought. Worth every penny!"
+	Verified Buyer — Urban Motion Series X1
+	5.10 Section 10: Loyalty & Drop Access Module ("Join Elite Club")
+Section 10 reproduces the JOIN ELITE CLUB newsletter acquisition card from Reference Image 3 inside a framed 12-column container (max-w-[1440px] mx-auto px-4 md:px-12 pb-24). The inner module (relative overflow-hidden rounded-2xl bg-caesar-card border border-caesar-border p-8 md:p-14 grid grid-cols-1 lg:grid-cols-12 items-center gap-10 shadow-burgundy-subtle) features a diagonal #6D001A ambient sheen across its right edge. The left five columns (lg:col-span-5) display the floating studio silhouette of the Elite Runner Pro angled over an obsidian surface (matching the exact left-hand shoe placement in Reference Image 3).
+The right seven columns (lg:col-span-7) present an envelope SVG icon (28px × 28px, stroked in #6D001A) inline with the H2 heading JOIN ELITE CLUB (font-heading text-2xl md:text-4xl font-extrabold text-caesar-white uppercase), followed by the verbatim subtitle: "Subscribe now and get exclusive updates on new arrivals, special offers and more." Beneath the copy sits #club-signup-form (flex flex-col sm:flex-row gap-3 max-w-xl), combining a dark email input (bg-caesar-black border border-caesar-border rounded-lg px-5 py-4 text-sm text-caesar-white placeholder:text-caesar-slate focus:border-caesar-burgundy with placeholder "Enter your email address") and a solid #6D001A submit button (bg-caesar-burgundy hover:bg-caesar-burgundy-light text-caesar-white font-sans text-xs font-bold uppercase tracking-[0.16em] px-8 py-4 rounded-lg) labeled SUBSCRIBE. Submitting a valid email triggers a GSAP text reveal confirming membership and unlocking code CAESAR15.
+5.11 Section 11: Multi-Column Architectural Footer & Payment Bar
+Section 11 synthesizes the four-column dark footer of Reference Image 3 with the VELORA brand identity on a pitch-black #000000 canvas (bg-caesar-black border-t border-caesar-border pt-20 pb-10). The upper grid (max-w-[1440px] mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-caesar-border) is organized into four structured columns, followed by a bottom copyright bar (© 2026 VELORA // PROJECT: CAESAR. ALL RIGHTS RESERVED.).
+Footer Column & Grid Span
+	Column Heading
+	Exact Links, Copy, and Trust Elements Rendered
+	Col 1: Brand & Socials (lg:col-span-4)
+	VELORA (STEP ABOVE. STAY AHEAD.)
+	Mission copy: "VELORA is committed to providing premium quality streetwear and footwear that deliver comfort, style and performance." Followed by 4 circular 38px × 38px bordered social buttons (f Facebook, ig Instagram, ▶ YouTube, ♪ TikTok) that fill with #6D001A on hover.
+	Col 2: Navigation (lg:col-span-2)
+	QUICK LINKS
+	Vertical link list (space-y-3 text-xs text-caesar-ash hover:text-caesar-white): Home, New Arrival, Men, Women, Collections, About Us, Contact Us (verbatim from Image 3).
+	Col 3: Support (lg:col-span-3)
+	CUSTOMER CARE
+	Vertical link list (space-y-3 text-xs text-caesar-ash hover:text-caesar-white): My Account, Track Order, Returns & Refunds, Shipping Info, Size Guide (opens Size Modal), FAQs, Privacy Policy (verbatim from Image 3).
+	Col 4: Concierge & Payments (lg:col-span-3)
+	CONTACT US & WE ACCEPT
+	Phone: +1 (800) 555-0199 / +92 300 1234567; Email: info@veloracaesar.com; Location: SoHo, NY & Lahore, Pakistan; Hours: `Mon - Sat
+	6. Step-by-Step Product Detail Page (PDP) Specification (View 02 — High-Contrast Editorial Layout)
+6.1 PDP Theme Architecture: High-Contrast Editorial Dual-Surface Logic
+Reference Image 1 (VELORA — Essential Oversized Hoodie) utilizes a crisp, high-contrast White (#FFFFFF) editorial canvas with Black (#000000) typography and soft alabaster (#F6F5F3) studio image frames. This directly operationalizes the third column of Reference Image 2 (Project: CAESAR — WHITE HEX #FFFFFF) while using BLACK (#000000) for structural authority and BURGUNDY (#6D001A) for high-converting focal triggers (33% OFF badge, active swatch rings, tab underlines, and CTA hover states)1. The PDP (product.html) defaults to this high-converting Editorial White (#FFFFFF) surface to match Reference Image 1 verbatim, while including an instant Surface Theme Toggle (Editorial White / Obsidian Dark) in the breadcrumb bar that tweens CSS custom properties via GSAP if the user prefers dark mode throughout10.
+6.2 PDP Section 01: Breadcrumb & Dynamic Stock Telemetry Bar
+Positioned directly beneath the global Announcement Bar and Header (max-w-[1440px] mx-auto px-4 md:px-12 pt-6 pb-4 flex items-center justify-between text-xs border-b border-caesar-border-light), the left breadcrumb trail renders Home / Shop / Heavyweight Apparel / Essential Oversized Hoodie (text-caesar-slate with the active product title in text-caesar-black font-semibold). The right side displays a live stock indicator consisting of a pulsing #6D001A dot alongside <span class="font-mono text-[11px] text-caesar-black">IN STOCK — SHIPS WITHIN 24 HOURS</span> and the theme switcher pill.
+6.3 PDP Section 02: Upper Buy-Box Split (Vertical Thumbnail Gallery & Interactive Configuration Panel)
+Section 02 reconstructs the upper half of Reference Image 1 (VELORA) inside a 12-column container (max-w-[1440px] mx-auto px-4 md:px-12 py-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start).
+The left seven columns (lg:col-span-7) house the Interactive Studio Gallery arranged as a responsive flex split (flex flex-col-reverse sm:flex-row gap-4 items-start). On the far left sits the Vertical Thumbnail Rail (w-full sm:w-[96px] flex sm:flex-col gap-3 items-center), containing four 88px × 110px rounded thumbnail frames (rounded-xl overflow-hidden cursor-pointer transition-all): Thumbnail 1 (active, bordered in border-2 border-caesar-black ring-2 ring-caesar-burgundy/30) shows the front three-quarter studio pose of the male model wearing the Charcoal Gray Essential Oversized Hoodie and sunglasses; Thumbnail 2 shows the side-profile pose highlighting hood volume; Thumbnail 3 shows the rear studio pose highlighting the dropped shoulder seam and back print; and Thumbnail 4 shows the macro sleeve cuff detail with the woven ESSENTIALS tag8. Anchored at the bottom of the vertical rail is the circular 42px × 42px scroll-next button (#thumb-next-btn, rounded-full border border-caesar-border-light bg-white flex items-center justify-center text-caesar-black hover:bg-caesar-black hover:text-caesar-white) displaying a downward arrow ↓ (verbatim from Reference Image 1) that cycles the active thumbnail index. Adjacent to the rail sits the Main Portrait Viewport (flex-1 relative rounded-2xl overflow-hidden bg-caesar-alabaster h-[520px] sm:h-[640px]), which crossfades images in 2D (opacity: 0 -> 1, scale: 1.02 -> 1.0) when thumbnails or swatches are clicked, and anchors a circular 44px × 44px zoom button (#pdp-zoom-btn, containing a magnifier-plus icon Q+) in the bottom-right corner (bottom-5 right-5) to trigger 2x high-resolution pan-zoom inspection8.
+The right five columns (lg:col-span-5) house the Product Buy-Box & Configuration Panel, structured vertically from top to bottom to match Reference Image 1 verbatim6:
+
+
+Buy-Box Row Order
+	Component Name
+	Exact Text Copy, DOM Classes, and Interactive Behavior
+	Row 01: Status Pill
+	New Arrival Badge
+	<span class="inline-block px-3.5 py-1 rounded-full bg-[#EFEFEF] text-caesar-black font-sans text-xs font-semibold tracking-wide mb-3">New Arrival</span> (verbatim from Image 1).
+	Row 02: Product H1
+	Main Garment Title
+	<h1 id="pdp-title" class="font-sans text-3xl md:text-[38px] font-bold text-caesar-black leading-[1.15] tracking-tight mb-3">Essential Oversized<br/>Hoodie</h1> (verbatim from Image 1)6.
+	Row 03: Social Proof
+	Star Rating & Review Link
+	Five solid stars (★★★★★) + <a href="#reviews-section" class="font-sans text-sm text-caesar-slate hover:text-caesar-burgundy">4.8 (128 reviews)</a> (verbatim from Image 1)7.
+	Row 04: Pricing Block
+	Price, Compare Price & Discount Pill
+	Current price <span id="pdp-price" class="font-mono text-3xl font-bold text-caesar-black">89.99</span>, and discount badge <span class="px-2.5 py-1 rounded bg-caesar-burgundy text-caesar-white font-mono text-xs font-bold uppercase">33% OFF</span> (verbatim from Image 1 with #6D001A badge accent)7.
+	Row 05: Lead Hook
+	Short Product Description
+	<p class="font-sans text-[15px] text-[#4A4A50] leading-relaxed mb-6">Premium heavyweight cotton hoodie with an oversized fit for ultimate comfort and modern style.</p> (verbatim from Image 1)6.
+	Row 06: Color Selector
+	Dynamic Label + Circular Swatches
+	Label: Color: <span id="selected-color-name" class="font-semibold">Charcoal Gray</span>. Below sit 5 36px × 36px circular buttons (rounded-full): Charcoal Gray (#36383C, active with double ring ring-2 ring-offset-2 ring-caesar-black), Heather Ash (#C4C5C9), Sand Cream (#E8DFD5), Pitch Black (#000000), and Caesar Burgundy (#6D001A)6.
+	Row 07: Size Matrix
+	Active Size Label, Size Guide Trigger & 5 Size Boxes
+	Top flex row: Size: <span id="selected-size-label" class="font-bold">M</span> on left; ruler SVG + underlined <button id="open-size-guide">Size Guide</button> on right2. Below sits a 5-column grid (grid-cols-5 gap-2.5) of 44px-tall rounded-lg buttons: S, M (selected default in bg-caesar-black text-caesar-white border-b-2 border-caesar-burgundy), L, XL, XXL.
+	Row 08: Primary CTAs
+	Full-Width Add to Cart + Square Wishlist Button
+	Flex row (flex items-center gap-3 mb-7): <button id="pdp-add-to-cart" class="flex-1 h-14 rounded-xl bg-caesar-black hover:bg-caesar-burgundy text-caesar-white font-sans text-sm font-semibold flex items-center justify-center gap-2.5 transition-colors"><svg>bag</svg> Add to Cart</button> + 56px × 56px outline heart button (♡)2.
+	Row 09: Micro-Trust Bar
+	3-Column Guarantee Strip
+	grid grid-cols-3 gap-3 pt-6 border-t border-caesar-border-light: (1) Truck SVG + Free Shipping / On orders over $99; (2) Return arrow SVG + Easy Returns / 30-day return policy; (3) Lock SVG + Secure Payment / 100% secure checkout (all verbatim from Image 1)2.
+	6.4 PDP Section 03: Tabbed Technical Specification & Macro Fabric Split
+Section 03 reconstructs the middle section of Reference Image 1 (Details, Materials, Size & Fit, and Shipping & Returns tabs on the left, paired with the wide macro ESSENTIALS COLLECTION fabric photograph on the right) inside <section class="max-w-[1440px] mx-auto px-4 md:px-12 py-14 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-t border-caesar-border-light">6.
+The left six columns (lg:col-span-6) render the horizontal tab header bar (flex items-center gap-8 border-b border-caesar-border-light mb-6) featuring four interactive tab buttons (Details, Materials, Size & Fit, Shipping & Returns). Clicking any tab shifts the 2px #6D001A active bottom underline using GSAP Flip and transitions the content panel below via a 2D upward fade (y: 10 -> 0, opacity: 0 -> 1, duration: 0.35). The right six columns (lg:col-span-6) display the 380px-tall rounded macro fabric frame (rounded-2xl overflow-hidden shadow-editorial-card) showing the dark charcoal heavyweight cotton folds and tonal ESSENTIALS COLLECTION typography from Reference Image 18.
+
+
+Tab Name
+	Opening Narrative Paragraph (Rendered Above Feature List)
+	5 Icon-Mapped Technical Specifications (Rendered in Vertical Stack Below Paragraph)
+	Tab 1: Details (Default Active — Verbatim from Image 1)
+	"Crafted from high-quality heavyweight cotton, this hoodie delivers unmatched comfort and durability. The oversized fit and minimal design make it a versatile staple for any wardrobe."
+	1. Oversized fit (Garment silhouette icon)
+
+
+2. Soft & heavyweight fabric (480 GSM textile weave icon)
+
+
+3. Adjustable drawstring hood (Hood/collar icon)
+
+
+4. Ribbed cuffs and hem (Cuff rib icon)
+
+
+5. Unisex style (Dual silhouette icon)
+	Tab 2: Materials
+	"Woven from 100% organic long-staple combed ring-spun cotton with a dense 480 GSM loopback interior and carbon-peached exterior face that resists pilling wash after wash."6
+	1. Composition: 100% Combed Ring-Spun Cotton (480 GSM)
+
+
+2. Ribbing: 520 GSM 95% Cotton / 5% Elastane recovery cuffs
+
+
+3. Dye Process: Reactive garment dye with enzyme pre-shrink wash
+
+
+4. Branding: High-density matte tonal ESSENTIALS COLLECTION puff print
+
+
+5. Care: Machine wash cold (30°C) inside out; lay flat to dry9
+	Tab 3: Size & Fit
+	"Engineered with a boxy, dropped-shoulder streetwear block that lands cleanly at the upper hip without swallowing the frame. Take your normal size for the intended oversized drape."5
+	1. Model Telemetry: Model is 6'1" (185 cm), 168 lbs, wearing size M9
+
+
+2. Chest Width (Flat Size M): 24.8 in (63 cm)
+
+
+3. Body Length (Flat Size M): 28.0 in (71 cm)
+
+
+4. Shoulder Drop: 23.6 in (60 cm) across seam-to-seam
+
+
+5. Fit Guidance: True to oversized spec; size down for a standard fit13
+	Tab 4: Shipping & Returns
+	"Every VELORA order is inspected, steamed, and sealed in a reusable matte-black archive garment bag before dispatch from our fulfillment hubs."
+	1. Free Standard Shipping: Complimentary on all orders over $99 (3–5 business days)
+
+
+2. Express Courier: $15 flat rate via DHL Express (1–2 business days)
+
+
+3. Same-Day Dispatch: Orders placed before 2:00 PM EST ship same day
+
+
+4. 30-Day Returns: Free prepaid return label for unworn items with hang tags
+
+
+5. Instant Exchanges: Immediate size swap reservation upon drop-off scan
+	6.5 PDP Section 04: Cross-Sell Recommendation Matrix ("You May Also Like")
+Section 04 reconstructs the bottom section of Reference Image 1 (You May Also Like with View All → and four cross-sell product cards) inside <section class="max-w-[1440px] mx-auto px-4 md:px-12 py-16 border-t border-caesar-border-light">. The header row (flex items-center justify-between mb-8) places <h2 class="font-sans text-2xl font-bold text-caesar-black">You May Also Like</h2> on the left and <a href="shop.html" class="font-sans text-sm font-medium text-caesar-black hover:text-caesar-burgundy inline-flex items-center gap-1.5">View All →</a> on the right (both verbatim from Reference Image 1).
+Beneath the header sits a four-column product grid (grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6). Each card (group bg-white border border-caesar-border-light rounded-2xl p-3 hover:border-caesar-burgundy transition-colors) contains a rounded alabaster studio portrait (bg-caesar-alabaster rounded-xl h-[300px] overflow-hidden mb-3.5) that executes a 2D 1.04x inner scale on hover, paired with a bottom metadata row (flex items-center justify-between px-1 pb-1) displaying the verbatim Product Title and Price on the left and a wishlist heart toggle (♡) on the right.
+Card Slot
+	Product Title (Verbatim from Image 1)
+	Price (Verbatim from Image 1)
+	Studio Visual Description
+	Linked SKU
+	Card 01
+	Minimal Hoodie
+	$54.99
+	Male model in Sand/Beige oversized pullover hoodie with tonal drawcords.
+	VEL-002
+	Card 02
+	Classic Sweatshirt
+	$49.99
+	Male model in Pitch Black heavyweight crewneck sweatshirt and black cap.
+	VEL-003
+	Card 03
+	Zip Up Hoodie
+	$64.99
+	Male model in Bone Cream heavyweight full-zip hoodie with matte zipper.
+	VEL-004
+	Card 04
+	Essential Hoodie
+	$59.99
+	Male model in Pitch Black pullover hoodie with chest print and beanie.
+	VEL-005
+	6.6 PDP Mobile Sticky Conversion Bar
+Because 80% to 81% of fashion e-commerce traffic and transactions occur on mobile devices, a sticky bottom conversion bar is mandatory on viewports below 768px2. Fixed to the bottom of the viewport (fixed bottom-0 left-0 w-full z-40 bg-caesar-black/95 backdrop-blur-md border-t border-caesar-border px-4 py-3 flex items-center justify-between md:hidden), this bar slides into view via ScrollTrigger once the primary buy-box Add to Cart button scrolls past the top of the screen2. The left side displays a 40px × 40px rounded thumbnail alongside Essential Oversized Hoodie and $59.99 · Charcoal · Size M, while the right side provides a one-tap #6D001A Burgundy button (px-5 py-3 rounded-lg font-sans text-xs font-bold text-white uppercase) labeled ADD TO CART.
+7. Secondary Pages, Global Overlays, and Transactional Views
+To ensure the frontend operates as a complete, multi-page flagship experience matching every navigation link in the header (HOME, SHOP, NEW ARRIVALS, COLLECTIONS, SALE, BLOG) and footer, the architecture specifies five additional page views and three global interactive overlays2.
+
+
+View / Overlay ID
+	File / DOM Target
+	Surface Palette & Layout Structure
+	Core Interactive Mechanics & Exact Copy
+	View 03: Shop / Master Catalog Page
+	shop.html
+	Obsidian Dark (#000000 bg, #121215 cards). Compact header (H1: THE MASTER ARCHIVE) above a 12-col split: lg:col-span-3 Sticky Faceted Filter Sidebar + lg:col-span-9 Product Grid.
+	Live filtering across all 16 SKUs by Category (All, Apparel, Running, Lifestyle, Sneakers, Training), Color Swatch (#000000, #6D001A, #FFFFFF, #36383C, #E8DFD5), Size (S–XXL / US 7–13), and Price Range (250). Filter changes animate card positions via GSAP Flip.from().
+	View 04: Collections & Lookbook Page
+	collections.html
+	Full-viewport 3-column vertical split directly honoring Reference Image 2 (Project: CAESAR), followed by a pinned horizontal lookbook gallery3.
+	Col 1 (BLACK // HEX 000000), Col 2 (BURGUNDY // HEX 6D001A), and Col 3 (WHITE // HEX FFFFFF). Hovering any column expands its width from 33.3% to 50% in 2D (duration-700 ease-caesar-out) and reveals a SHOP THIS COLORWAY → CTA.
+	View 05: Sale / Vault Archive Page
+	sale.html
+	High-contrast #6D001A Burgundy hero ribbon (H1: THE PRIVATE VAULT — UP TO 33% OFF) with a live GSAP countdown timer (02d : 14h : 38m : 19s) over a 4-column grid8.
+	Automatically filters VELORA_CATALOG to the 9 discounted SKUs (VEL-001 at 33% OFF, VEL-002 at 27% OFF, VEL-004 at 24% OFF, VEL-006 at 19% OFF, etc.) with prominent #6D001A savings pills.
+	View 06: Editorial Journal / Blog Page
+	blog.html
+	Dark magazine grid (#000000 bg, H1: THE CAESAR JOURNAL) featuring a 2-column featured editorial lead and a 3-column article grid6.
+	Publishes 4 full-text technical articles: (1) "Why 480 GSM Loopback Fleece Defines Modern Luxury Streetwear"; (2) "Inside Project CAESAR: Obsidian & Burgundy"; (3) "Sole Architecture: Nitrogen Midsoles"; (4) "The Oversized Proportion Guide"5.
+	View 07: Single-Page Checkout UI
+	checkout.html
+	Distraction-free 2-column split (lg:col-span-7 Left Form Steps, lg:col-span-5 Right Sticky Order Summary) with security badges visible above the fold2.
+	Includes 1-tap express buttons (Apple Pay, Shop Pay), floating-label shipping inputs with #6D001A focus rings, shipping radio selector (Free over $99 vs $15 Express), payment tabs (Visa/Mastercard, JazzCash), and promo input (CAESAR15 applies 15% off)2.
+	Overlay 01: Slide-Out Mini-Cart Drawer
+	#cart-drawer (Global Aside)
+	Right slide-out drawer (max-w-[440px] bg-caesar-card border-l border-caesar-border z-[90]) animated via GSAP (xPercent: 100 -> 0).
+	Features a Dynamic Free-Shipping Progress Bar tied to the $99 threshold from Image 1 ("Add $39.01 more for FREE Express Shipping!" with a #6D001A fill bar), quantity steppers (- / 1 / +), an in-drawer upsell (Heavyweight Boxy Tee — $38), and PROCEED TO CHECKOUT →.
+	Overlay 02: Interactive Size & Fit Modal
+	#size-guide-modal (Global Dialog)
+	Centered glassmorphic modal (max-w-2xl bg-caesar-card border border-caesar-border rounded-2xl p-8 z-[95]) triggered from PDP or Footer5.
+	Includes a live INCHES / CM unit toggle, complete measurement matrices for Apparel (S–XXL Chest, Length, Shoulder) and Footwear (US 7–13), plus an interactive "Find My Fit" Calculator (Height + Weight + Fit Preference -> outputs exact size recommendation)5.
+	Overlay 03: Instant Search & Wishlist
+	#search-modal & #wishlist-drawer
+	Top command palette (bg-caesar-black/95 border-b border-caesar-border py-10) and right-hand saved items drawer.
+	Instant keystroke filtering across all 16 products by title, color, or GSM weight; persistent localStorage wishlist (velora_wishlist) with one-click Move to Bag transfer.
+	8. Vanilla JavaScript State Architecture & Production Implementation Blueprint
+To bind the semantic HTML5 structure, Tailwind CSS tokens, WebGL shader canvases, and GSAP animations into a cohesive frontend application without external framework bloat, the codebase is organized into a clean modular file architecture3. The root directory houses the HTML views (index.html, product.html, shop.html, collections.html, sale.html, blog.html, and checkout.html), while css/styles.css declares custom CSS properties, custom scrollbars (#6D001A thumb on #000000 track), and line-mask utilities. Inside the js/ directory, js/catalog.js exports the 16-product VELORA_CATALOG data store; js/shader-silk.js initializes the lightweight Three.js fragment shader on #hero-webgl-canvas and #spotlight-webgl-canvas with IntersectionObserver pausing10; js/animations.js executes the initCaesarPreloader() timeline with GSAP Flip logo docking, ScrollTrigger section reveals, and strictly 2D hover listeners10; and js/app.js manages localStorage cart and wishlist state, the $99 free-shipping progress bar, dynamic PDP hydration via URL query parameters (?id=VEL-001), tab switching, and multi-currency conversion (USD $ / PKR ₨).
+Below is the core production JavaScript and GSAP implementation (js/animations.js and js/shader-silk.js) governing the five-phase preloader timeline, the ambient WebGL Burgundy silk shader, and the reactive PDP & cart state engine:
+
+
+
+
+
+
+JavaScript
+// ============================================================================
+// 1. CREATIVE GSAP PRELOADER: "THE ARTERIAL SILK & MONOLITH DOCK"
+// ============================================================================
+gsap.registerPlugin(ScrollTrigger, Flip);
+
+function initCaesarPreloader() {
+ const preloader = document.getElementById('caesar-preloader');
+ if (!preloader) return;
+
+ const counterEl = document.getElementById('preloader-counter-num');
+ const filament = document.querySelector('.preloader-filament');
+ const chars = document.querySelectorAll('#preloader-logo-wrap .char');
+ const subLabel = document.querySelector('#preloader-logo-wrap .sub-label');
+ const shutterTop = document.querySelector('.preloader-shutter-top');
+ const shutterBottom = document.querySelector('.preloader-shutter-bottom');
+ const burgundyVeil = document.querySelector('.preloader-burgundy-veil');
+ const preloaderLogo = document.getElementById('preloader-logo-text');
+ const navLogoTarget = document.querySelector('.header-logo-target');
+
+ const progress = { value: 0 };
+
+ const tl = gsap.timeline({
+   defaults: { ease: 'power3.out' },
+   onComplete: () => {
+     preloader.style.display = 'none';
+     document.body.classList.remove('overflow-hidden');
+     ScrollTrigger.refresh();
+   }
+ });
+
+ // Phase 1 & 2: Counter 000 -> 100 and #6D001A Laser Filament Sweep
+ tl.to(progress, {
+   value: 100,
+   duration: 1.4,
+   ease: 'power2.inOut',
+   onUpdate: () => {
+     counterEl.textContent = String(Math.floor(progress.value)).padStart(3, '0');
+   }
+ }, 0)
+ .to(filament, {
+   scaleX: 1,
+   duration: 1.3,
+   ease: 'expo.inOut'
+ }, 0.1)
+
+ // Phase 3: Monolith Character Mask Rise
+ .to(chars, {
+   yPercent: 0,
+   stagger: 0.045,
+   duration: 0.75,
+   ease: 'power4.out'
+ }, 0.45)
+ .to(subLabel, {
+   opacity: 1,
+   letterSpacing: '0.4em',
+   duration: 0.6
+ }, 0.85)
+
+ // Phase 4: Collapse Filament & Dock Wordmark into Sticky Header via GSAP Flip
+ .to(filament, {
+   backgroundColor: '#FFFFFF',
+   height: '2px',
+   duration: 0.15
+ }, 1.45)
+ .to(filament, {
+   scaleY: 0,
+   opacity: 0,
+   duration: 0.25
+ }, 1.6)
+ .add(() => {
+   if (preloaderLogo && navLogoTarget) {
+     const state = Flip.getState(preloaderLogo);
+     navLogoTarget.innerHTML = '';
+     navLogoTarget.appendChild(preloaderLogo);
+     Flip.from(state, {
+       duration: 0.75,
+       ease: 'expo.inOut',
+       scale: true
+     });
+   }
+ }, 1.6)
+
+ // Phase 5: Dual Obsidian Shutters & Trailing #6D001A Burgundy Silk Veil Parting
+ .to([ subLabel, '#preloader-counter', '.preloader-telemetry' ], {
+   opacity: 0,
+   y: -15,
+   duration: 0.35
+ }, 1.55)
+ .to(shutterTop, {
+   yPercent: -100,
+   duration: 0.85,
+   ease: 'expo.inOut'
+ }, 1.65)
+ .to(shutterBottom, {
+   yPercent: 100,
+   duration: 0.85,
+   ease: 'expo.inOut'
+ }, 1.65)
+ .to(burgundyVeil, {
+   clipPath: 'inset(50% 0 50% 0)',
+   duration: 0.85,
+   ease: 'expo.inOut'
+ }, 1.77)
+ .from('.hero-reveal-item', {
+   y: 40,
+   opacity: 0,
+   stagger: 0.1,
+   duration: 0.8,
+   ease: 'power3.out'
+ }, 2.0);
+}
+
+// ============================================================================
+// 2. AMBIENT 3D BACKGROUND: WEBGL LIQUID BURGUNDY SILK SHADER (#6D001A / #000000)
+// ============================================================================
+function initCaesarSilkShader(canvasId) {
+ const canvas = document.getElementById(canvasId);
+ if (!canvas || typeof THREE === 'undefined') return;
+
+ const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+ renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+ const scene = new THREE.Scene();
+ const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+ const uniforms = {
+   uTime: { value: 0 },
+   uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+   uColorObsidian: { value: new THREE.Color('#000000') },
+   uColorBurgundy: { value: new THREE.Color('#6D001A') },
+   uColorPeak: { value: new THREE.Color('#9E0027') }
+ };
+
+ const fragmentShader = `
+   precision mediump float;
+   uniform float uTime;
+   uniform vec2 uMouse;
+   uniform vec3 uColorObsidian;
+   uniform vec3 uColorBurgundy;
+   uniform vec3 uColorPeak;
+   varying vec2 vUv;
+
+   void main() {
+     vec2 uv = vUv;
+     vec2 mouseOffset = (uv - uMouse) * 0.35;
+     float dist = length(mouseOffset);
+
+     float wave1 = sin(uv.x * 5.5 + uTime * 0.7 - uv.y * 3.2) * 0.5 + 0.5;
+     float wave2 = cos(uv.y * 6.0 - uTime * 0.5 + sin(uv.x * 4.0 + uTime)) * 0.5 + 0.5;
+     float silkFold = pow(wave1 * wave2, 1.65);
+
+     float specular = smoothstep(0.58, 0.88, silkFold) * (1.0 - smoothstep(0.0, 0.85, dist));
+     vec3 baseMix = mix(uColorObsidian, uColorBurgundy, silkFold * 0.82);
+     vec3 finalColor = mix(baseMix, uColorPeak, specular * 0.65);
+
+     gl_FragColor = vec4(finalColor, 1.0);
+   }
+ `;
+
+ const vertexShader = `
+   varying vec2 vUv;
+   void main() {
+     vUv = uv;
+     gl_Position = vec4(position, 1.0);
+   }
+ `;
+
+ const material = new THREE.ShaderMaterial({ vertexShader, fragmentShader, uniforms });
+ scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
+
+ const xTo = gsap.quickTo(uniforms.uMouse.value, 'x', { duration: 0.8, ease: 'power2.out' });
+ const yTo = gsap.quickTo(uniforms.uMouse.value, 'y', { duration: 0.8, ease: 'power2.out' });
+
+ window.addEventListener('pointermove', (e) => {
+   xTo(e.clientX / window.innerWidth);
+   yTo(1.0 - e.clientY / window.innerHeight);
+ });
+
+ let isVisible = true;
+ const observer = new IntersectionObserver(([entry]) => {
+   isVisible = entry.isIntersecting;
+ });
+ observer.observe(canvas);
+
+ function render() {
+   if (isVisible && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+     uniforms.uTime.value += 0.012;
+     renderer.render(scene, camera);
+   }
+   requestAnimationFrame(render);
+ }
+ render();
+}
+
+Through this unified specification, every structural element from the VELORA Product Detail Page, the ELITE SOLE dark homepage, and the Project: CAESAR #000000 / #6D001A / #FFFFFF color and silk system is accounted for—delivering a complete, production-ready frontend architecture using strictly HTML5, CSS3, Tailwind CSS, Vanilla JavaScript, GSAP, and ambient WebGL shaders3.
+Works cited
+1. Essential Behance Portfolio Guide 2026 | PDF | Typography - Scribd, https://www.scribd.com/document/971160722/Behance-Copy
+2. Stunning Clothing Website Design Examples That Turn Heads, https://muffingroup.com/blog/clothing-website-design/
+3. Apex Code · Premium Digital Experiences, https://portfolio.apexcodestudio.store/
+4. Lifestyle Brand - Dribbble, https://dribbble.com/tags/lifestyle-brand
+5. Streetwear Size & Fit Guide, https://www.carhattapc.com/streetwear-size-fit-guide/
+6. T-shirt description examples for 2026 - Printful, https://www.printful.com/blog/t-shirt-description-examples
+7. 8 Product Description Examples to Copy for Your Store - Tadpull, https://www.tadpull.com/blog/product-description-examples-ecommerce-store
+8. Luxury Fashion Farfetch Blueprint | PDF - Scribd, https://www.scribd.com/document/1065863527/Luxury-Fashion-Farfetch-Blueprint
+9. Fashion Product Descriptions: How to Write Ones That Sell - MerchUp, https://www.merchup.ai/articles/fashion-product-descriptions
+10. GSAP Glossary: Animation Terms with Examples, https://gsapvault.com/glossary
+11. Browse thousands of Gothic Website images for design inspiration, https://dribbble.com/search/gothic-website
+12. luxury dark website - Dribbble, https://dribbble.com/search/luxury-dark-website
+13. Copywriting for Streetwear brand in 2026 [Example] - FounderPal, https://founderpal.ai/copy-examples/streetwear-brand
+14. Browse thousands of Product Drop images for design inspiration, https://dribbble.com/search/shots/popular/?q=product-drop
+15. How to Write Product Descriptions for an Online Clothing Store, https://graphicexpertsindia.com/how-to-write-product-descriptions-for-online-clothing-store/
+16. The Ultimate Streetwear Sourcing Guide for Small & Mid Brands, https://dressource.com/blog/small-mid-brand-streetwear-manufacturer-low-moq/
+17. GitHub - pulkitxm/claude-directory: Open-source AI interfaces built, https://github.com/pulkitxm/claude-directory
+18. GSAP preloader: a loading animation that tracks real progress, https://gsapvault.com/blog/gsap-preloader
+19. Gemini 4 Argon Review: I Tested 5 Apps - Promptslove, https://promptslove.com/blog/gemini-4-argon-review/
+20. Assembli - Awesome MCP Servers, https://mcpservers.org/servers/www-assembli-design
+21. Motion — Premium Interactive Web Sections, https://www.motionin.design/
+22. GSAP Preloader Cloneable. - Webflow, https://webflow.com/made-in-webflow/website/oma-gsap-preloader
+23. Build a Stunning Preloader & Page Load Animation with GSAP in, https://www.formburg.com/en/blog/preloader-animation-gsap-in-webflow
+24. Creating a pre-loader with GSAP3 Stroke Reveal effect - GSAP, https://gsap.com/community/forums/topic/39777-creating-a-pre-loader-with-gsap3-stroke-reveal-effect/
+25. ambient background - Dribbble, https://dribbble.com/search/ambient-background
+26. How to Write Product Descriptions? | Dijinomi Blog, https://dijinomi.com/en/how-to-write-product-descriptions
+27. 7 Outstanding E-Commerce Size Guide Examples You Can Copy, https://www.drip.com/blog/e-commerce-size-guide-examples
