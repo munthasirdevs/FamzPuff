@@ -210,23 +210,122 @@
     }
   }
 
-  // 3. WISHLIST
+  // 3. WISHLIST & LIKES
+  function isLiked(productId) {
+    return wishlist.includes(productId);
+  }
+
   function toggleWishlist(productId, btnEl) {
     const idx = wishlist.indexOf(productId);
     if (idx > -1) {
       wishlist.splice(idx, 1);
-      if (btnEl) btnEl.innerHTML = '♡';
     } else {
       wishlist.push(productId);
-      if (btnEl) btnEl.innerHTML = '♥';
     }
     saveWishlist();
+    if (btnEl) {
+      if (wishlist.includes(productId)) {
+        btnEl.innerHTML = '♥';
+        btnEl.classList.add('text-caesar-burgundy');
+        btnEl.classList.remove('text-caesar-ash');
+      } else {
+        btnEl.innerHTML = '♡';
+        btnEl.classList.remove('text-caesar-burgundy');
+        btnEl.classList.add('text-caesar-ash');
+      }
+    }
+    renderWishlistPage();
+  }
+
+  function likeAll() {
+    if (!window.VELORA_CATALOG) return;
+    wishlist = window.VELORA_CATALOG.map(p => p.id);
+    saveWishlist();
+    renderWishlistPage();
+  }
+
+  function unlikeAll() {
+    wishlist = [];
+    saveWishlist();
+    renderWishlistPage();
   }
 
   function updateWishlistBadges() {
     document.querySelectorAll('#wishlist-count, .wishlist-count-badge').forEach(el => {
       el.textContent = wishlist.length;
     });
+
+    document.querySelectorAll('[data-wishlist-id]').forEach(btn => {
+      const pid = btn.getAttribute('data-wishlist-id');
+      if (wishlist.includes(pid)) {
+        btn.innerHTML = '♥';
+        btn.classList.add('text-caesar-burgundy');
+        btn.classList.remove('text-caesar-ash');
+      } else {
+        btn.innerHTML = '♡';
+        btn.classList.remove('text-caesar-burgundy');
+        btn.classList.add('text-caesar-ash');
+      }
+    });
+  }
+
+  function renderWishlistPage() {
+    const grid = document.getElementById('wishlist-grid');
+    const emptyState = document.getElementById('wishlist-empty-state');
+    const countEl = document.getElementById('wishlist-total-count');
+    if (!grid || !window.VELORA_CATALOG) return;
+
+    const likedItems = window.VELORA_CATALOG.filter(p => wishlist.includes(p.id));
+
+    if (countEl) countEl.textContent = `${likedItems.length} SAVED HARDWARE PIECES`;
+
+    if (likedItems.length === 0) {
+      grid.innerHTML = '';
+      if (emptyState) emptyState.classList.remove('hidden');
+      return;
+    }
+
+    if (emptyState) emptyState.classList.add('hidden');
+
+    grid.innerHTML = likedItems.map(prod => `
+      <div class="product-grid-card caesar-card-interactive group bg-caesar-card border border-caesar-border rounded-xl p-5 flex flex-col justify-between relative" data-product-id="${prod.id}">
+        <div class="flex items-center justify-between mb-2">
+          ${prod.discountBadge ? `<span class="px-2 py-0.5 rounded bg-caesar-burgundy font-mono text-[10px] font-bold text-white uppercase">${prod.discountBadge}</span>` : `<span></span>`}
+          <button data-wishlist-id="${prod.id}" onclick="window.VeloraApp.toggleWishlist('${prod.id}', this)" class="text-caesar-burgundy text-sm hover:scale-110 transition-transform" title="Remove from favorites">♥</button>
+        </div>
+
+        <a href="product.html?id=${prod.id}" class="img-viewport block h-56 bg-[#0D0D10] rounded-lg mb-4 overflow-hidden relative">
+          <img src="${prod.images[0]}" alt="${prod.name}" class="img-primary w-full h-full object-cover" />
+        </a>
+
+        <div>
+          <span class="font-mono text-[10px] text-caesar-burgundy-light uppercase tracking-wider block">${prod.category}</span>
+          <a href="product.html?id=${prod.id}" class="font-sans text-sm font-semibold text-caesar-white hover:text-caesar-burgundy-light block mt-0.5 line-clamp-1">${prod.name}</a>
+          <div class="flex items-center gap-1 text-xs text-caesar-burgundy mt-1">
+            <span>★★★★★</span>
+            <span class="font-mono text-[10px] text-caesar-ash">(${prod.reviewCount})</span>
+          </div>
+          <p class="font-sans text-xs text-caesar-ash mt-1.5 line-clamp-2">${prod.shortDesc || prod.description || ''}</p>
+        </div>
+
+        <div class="flex items-end justify-between mt-4 pt-3 border-t border-caesar-border/60">
+          <div>
+            <div class="flex items-center gap-1.5 mb-2">
+              ${prod.colorways ? prod.colorways.slice(0, 3).map(cw => `
+                <span class="w-2.5 h-2.5 rounded-full border border-caesar-border inline-block" style="background-color: ${cw.hex}" title="${cw.name}"></span>
+              `).join('') : ''}
+            </div>
+            <span class="font-mono text-base font-bold text-caesar-white" data-price-usd="${prod.priceUSD}" data-price-pkr="${prod.pricePKR || ''}">
+              ${formatPrice(prod.priceUSD, prod.pricePKR)}
+            </span>
+          </div>
+
+          <button onclick="window.VeloraApp.addToCart(window.getVeloraProduct('${prod.id}'), '${prod.colorways ? prod.colorways[0].name : 'Default'}', '${prod.sizes ? prod.sizes[0] : 'Standard'}', 1); this.innerHTML='✓'; setTimeout(()=>this.innerHTML='🛒', 1200);" class="w-10 h-10 rounded-lg border border-caesar-border bg-caesar-surface text-caesar-white hover:bg-caesar-burgundy hover:border-caesar-burgundy flex items-center justify-center transition-colors" title="Add to Bag">
+            🛒
+          </button>
+        </div>
+      </div>
+    `).join('');
   }
 
   // 4. SEARCH MODAL
@@ -618,8 +717,44 @@
       });
     }
 
+    // Mobile Menu Drawer triggers
+    document.querySelectorAll('#mobile-menu-trigger, .open-mobile-menu-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openMobileMenu();
+      });
+    });
+    const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
+    if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
     hydrateProductDetail();
+    renderWishlistPage();
   });
+
+  // Mobile Menu functions
+  function openMobileMenu() {
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+    if (drawer) drawer.classList.remove('translate-x-full');
+    if (backdrop) {
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+    }
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeMobileMenu() {
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+    if (drawer) drawer.classList.add('translate-x-full');
+    if (backdrop) {
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    document.body.classList.remove('overflow-hidden');
+  }
 
   // Global API
   window.VeloraApp = {
@@ -629,16 +764,23 @@
     openCartDrawer,
     closeCartDrawer,
     toggleWishlist,
+    likeAll,
+    unlikeAll,
+    isLiked,
+    renderWishlistPage,
     setCurrency,
     formatPrice,
     openSearchModal,
     closeSearchModal,
     openSizeGuide,
     closeSizeGuide,
+    openMobileMenu,
+    closeMobileMenu,
     switchPdpImage,
     selectPdpColor,
     selectPdpSize,
     switchPdpTab
   };
+  window.FamzPuffApp = window.VeloraApp;
 
 })();

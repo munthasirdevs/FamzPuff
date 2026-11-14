@@ -566,3 +566,5 @@ window.getVeloraProduct = function(idOrSlug) {
   const found = window.VELORA_CATALOG.find(p => p.id === idOrSlug || p.slug === idOrSlug);
   return found || window.VELORA_CATALOG[0];
 };
+window.getFamzPuffProduct = window.getVeloraProduct;
+window.FAMZPUFF_CATALOG = window.VELORA_CATALOG;

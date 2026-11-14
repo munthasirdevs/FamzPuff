@@ -82,34 +82,84 @@
         </a>
       </div>
 
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav class="hidden lg:flex items-center gap-7">
         <a href="index.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">HOME</a>
-        <a href="shop.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-black border-b border-caesar-burgundy pb-0.5">VAPES & PODS ▾</a>
+        <a href="shop.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-black border-b border-caesar-burgundy pb-0.5">ALL VAPES</a>
         <a href="shop.html?cat=disposables" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">DISPOSABLES</a>
         <a href="shop.html?cat=pods" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">POD SYSTEMS</a>
+        <a href="collections.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">COLLECTIONS</a>
         <a href="sale.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-burgundy hover:text-caesar-black flex items-center gap-1">
           VAULT DEALS <span class="font-mono text-[9px] px-1 py-0.5 rounded bg-caesar-burgundy text-white">29%</span>
         </a>
-        <a href="blog.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">VAPE JOURNAL</a>
+        <a href="blog.html" class="font-sans text-[13px] font-semibold tracking-[0.12em] uppercase text-caesar-slate hover:text-caesar-black">JOURNAL</a>
       </nav>
 
-      <div class="flex items-center gap-5 text-caesar-black">
+      <div class="flex items-center gap-4 md:gap-5 text-caesar-black">
         <button id="search-trigger" class="hover:text-caesar-burgundy transition-colors p-1" title="Search">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </button>
 
-        <a href="shop.html" id="wishlist-trigger" class="relative hover:text-caesar-burgundy transition-colors p-1" title="Wishlist">
+        <a href="wishlist.html" id="wishlist-trigger" class="relative hover:text-caesar-burgundy transition-colors p-1" title="Wishlist">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-          <span id="wishlist-count" class="absolute -top-1 -right-1.5 w-4 h-4 rounded-full bg-caesar-black text-[9px] font-mono font-bold flex items-center justify-center text-white">2</span>
+          <span id="wishlist-count" class="absolute -top-1 -right-1.5 w-4 h-4 rounded-full bg-caesar-black text-[9px] font-mono font-bold flex items-center justify-center text-white">0</span>
         </a>
 
         <button id="cart-drawer-trigger" class="relative hover:text-caesar-burgundy transition-colors p-1" title="Cart">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-          <span id="cart-count" class="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-caesar-burgundy text-[10px] font-mono font-bold flex items-center justify-center text-white">2</span>
+          <span id="cart-count" class="absolute -top-1.5 -right-2 w-4 h-4 rounded-full bg-caesar-burgundy text-[10px] font-mono font-bold flex items-center justify-center text-white">0</span>
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-trigger" class="lg:hidden p-1.5 rounded-lg border border-caesar-border bg-caesar-alabaster text-caesar-black hover:text-caesar-burgundy" title="Open Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Menu Drawer & Backdrop -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-[95] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-caesar-surface border-l border-caesar-border z-[100] transform translate-x-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between p-6 text-white">
+    <div>
+      <div class="flex items-center justify-between pb-5 border-b border-caesar-border">
+        <a href="index.html" class="font-display text-xl font-bold tracking-[0.18em] text-white">FamzPuff</a>
+        <button id="mobile-menu-close" class="text-caesar-ash hover:text-white p-1 text-lg">✕</button>
+      </div>
+
+      <div class="py-6 space-y-4">
+        <a href="index.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">Home</a>
+        <a href="shop.html" class="block font-sans text-sm font-semibold tracking-wider text-white uppercase">All Vapes & Pods</a>
+        <a href="shop.html?cat=disposables" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white pl-3">↳ Disposables</a>
+        <a href="shop.html?cat=pods" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white pl-3">↳ Pod Systems</a>
+        <a href="shop.html?cat=mods" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white pl-3">↳ Vape Mods</a>
+        <a href="shop.html?cat=eliquids" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white pl-3">↳ Salts & E-Juice</a>
+        <a href="collections.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">The Vapor Triad</a>
+        <a href="sale.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-burgundy-light uppercase hover:text-white flex items-center justify-between">
+          <span>Private Vault Sale</span>
+          <span class="font-mono text-[9px] px-1.5 py-0.5 rounded bg-caesar-burgundy text-white">29% OFF</span>
+        </a>
+        <a href="wishlist.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white flex items-center justify-between">
+          <span>Saved Favorites ♥</span>
+          <span class="wishlist-count-badge font-mono text-[10px] text-caesar-burgundy-light font-bold">0</span>
+        </a>
+        <a href="blog.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">Vape Journal</a>
+        <a href="about.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">About Obsidian Labs</a>
+        <a href="shipping.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">Discreet Shipping & 21+</a>
+        <a href="contact.html" class="block font-sans text-sm font-semibold tracking-wider text-caesar-ash uppercase hover:text-white">Concierge & Support</a>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-caesar-border">
+      <div class="text-[10px] font-mono text-caesar-slate uppercase tracking-wider mb-2">CURRENCY SELECT</div>
+      <div class="grid grid-cols-4 gap-2 mb-4">
+        <button onclick="window.VeloraApp.setCurrency('USD')" class="py-1 rounded bg-caesar-card border border-caesar-border text-center font-mono text-xs text-caesar-white hover:bg-caesar-burgundy">USD</button>
+        <button onclick="window.VeloraApp.setCurrency('PKR')" class="py-1 rounded bg-caesar-card border border-caesar-border text-center font-mono text-xs text-caesar-white hover:bg-caesar-burgundy">PKR</button>
+        <button onclick="window.VeloraApp.setCurrency('EUR')" class="py-1 rounded bg-caesar-card border border-caesar-border text-center font-mono text-xs text-caesar-white hover:bg-caesar-burgundy">EUR</button>
+        <button onclick="window.VeloraApp.setCurrency('GBP')" class="py-1 rounded bg-caesar-card border border-caesar-border text-center font-mono text-xs text-caesar-white hover:bg-caesar-burgundy">GBP</button>
+      </div>
+      <p class="text-[10px] font-mono text-caesar-slate">⚠️ 21+ ONLY. NICOTINE IS ADDICTIVE.</p>
+    </div>
+  </aside>
 
   <!-- PDP Breadcrumbs & Stock Status -->
   <div class="max-w-[1440px] mx-auto px-4 md:px-12 pt-6 pb-4 flex flex-wrap items-center justify-between text-xs border-b border-caesar-border-light gap-4">
@@ -322,11 +372,69 @@
     </button>
   </div>
 
-  <footer class="bg-caesar-black border-t border-caesar-border pt-16 pb-10 text-white">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-12 text-center text-xs text-caesar-ash">
-      <p class="font-display text-xl text-white mb-2">FamzPuff</p>
-      <p class="mb-4">OBSIDIAN VAPOR LABS // LUXURY VAPES & PODS</p>
-      <p class="text-[11px] text-caesar-slate">© 2026 FAMZPUFF INC. ALL RIGHTS RESERVED. 21+ ONLY.</p>
+  <!-- Footer -->
+  <footer class="bg-caesar-surface border-t border-caesar-border pt-16 pb-12 text-white">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-caesar-border">
+      <div class="lg:col-span-4">
+        <a href="index.html" class="font-display text-2xl font-bold tracking-[0.18em] text-caesar-white block mb-2">FamzPuff</a>
+        <span class="font-mono text-[10px] tracking-[0.25em] text-caesar-burgundy-light uppercase block mb-4">OBSIDIAN VAPOR LABS // LUXURY HARDWARE</span>
+        <p class="font-sans text-xs text-caesar-ash leading-relaxed max-w-sm mb-6">
+          FamzPuff produces premier vaporizers, rechargeable disposable pods, and nicotine delivery devices engineered for reliability, safety, and sensory depth.
+        </p>
+        <p class="text-[10px] font-mono text-caesar-slate border border-caesar-border p-2 rounded">
+          ⚠️ WARNING: This product contains nicotine. Nicotine is an addictive chemical. Only for adults 21+.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h4 class="font-heading text-xs font-bold text-white uppercase tracking-wider mb-5">HARDWARE VAULT</h4>
+        <ul class="space-y-3 text-xs text-caesar-ash">
+          <li><a href="shop.html?cat=disposables" class="hover:text-white">Disposables (15K/20K)</a></li>
+          <li><a href="shop.html?cat=pods" class="hover:text-white">Pod Systems</a></li>
+          <li><a href="shop.html?cat=mods" class="hover:text-white">Vape Mods (80W–200W)</a></li>
+          <li><a href="shop.html?cat=eliquids" class="hover:text-white">E-Liquids & Salts</a></li>
+          <li><a href="shop.html?cat=accessories" class="hover:text-white">Replacement Coils & Pods</a></li>
+          <li><a href="wishlist.html" class="hover:text-white text-caesar-burgundy-light">Saved Favorites ♥</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="font-heading text-xs font-bold text-white uppercase tracking-wider mb-5">EXPLORE & LABS</h4>
+        <ul class="space-y-3 text-xs text-caesar-ash">
+          <li><a href="collections.html" class="hover:text-white">The Vapor Triad Lookbook</a></li>
+          <li><a href="sale.html" class="hover:text-white">Private Vault Sale (29% Off)</a></li>
+          <li><a href="blog.html" class="hover:text-white">Vape Journal & Science</a></li>
+          <li><a href="about.html" class="hover:text-white">About Obsidian Labs</a></li>
+          <li><button onclick="window.VeloraApp.openSizeGuide()" class="hover:text-white text-left">Nicotine Strength Guide</button></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="font-heading text-xs font-bold text-white uppercase tracking-wider mb-5">CONCIERGE & CARE</h4>
+        <ul class="space-y-3 text-xs text-caesar-ash mb-4">
+          <li><a href="shipping.html" class="hover:text-white">Discreet Shipping Policy</a></li>
+          <li><a href="shipping.html#age-verification" class="hover:text-white">21+ Age Verification</a></li>
+          <li><a href="shipping.html#warranty" class="hover:text-white">Warranty & Returns</a></li>
+          <li><a href="contact.html" class="hover:text-white">Contact Concierge & SoHo Vault</a></li>
+          <li><a href="checkout.html" class="hover:text-white">Express Checkout</a></li>
+        </ul>
+        <div class="flex flex-wrap items-center gap-2 pt-2 text-[10px] font-mono text-caesar-ash">
+          <span class="px-2 py-1 rounded bg-caesar-card border border-caesar-border">VISA</span>
+          <span class="px-2 py-1 rounded bg-caesar-card border border-caesar-border">MASTERCARD</span>
+          <span class="px-2 py-1 rounded bg-caesar-card border border-caesar-border">APPLE PAY</span>
+          <span class="px-2 py-1 rounded bg-caesar-card border border-caesar-border">JAZZCASH</span>
+          <span class="px-2 py-1 rounded bg-caesar-card border border-caesar-border">COD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-4 md:px-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-caesar-slate gap-4">
+      <div>© 2026 FAMZPUFF INC. ALL RIGHTS RESERVED. 21+ ONLY.</div>
+      <div class="flex items-center gap-6">
+        <a href="shipping.html" class="hover:text-caesar-ash">TERMS OF SERVICE</a>
+        <a href="shipping.html#age-verification" class="hover:text-caesar-ash">AGE VERIFICATION</a>
+        <a href="shipping.html" class="hover:text-caesar-ash">DISCREET SHIPPING</a>
+      </div>
     </div>
   </footer>
 
